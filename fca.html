@@ -1,0 +1,1927 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fernando Clemer Arananda | Acción Popular - Huancavelica</title>
+
+    <!-- Google Fonts (Premium) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <style>
+        /* ============================================================
+           VARIABLES PREMIUM - Acción Popular
+           ============================================================ */
+        :root {
+            --color-red: #C8102E;
+            --color-red-dark: #8B0000;
+            --color-red-subtle: #FDE8EA;
+            --color-black: #1A1A1A;
+            --color-black-light: #2D2D2D;
+            --color-white: #FFFFFF;
+            --color-off-white: #F8F9FA;
+            --color-gray-light: #F1F3F5;
+            --color-gray: #E9ECEF;
+            --color-gray-dark: #6C757D;
+            --color-text: #1A1A1A;
+            --color-gold: #D4AF37;
+            --font-primary: 'Inter', sans-serif;
+            --font-display: 'Playfair Display', serif;
+            --font-stats: 'Orbitron', monospace;
+            --shadow-sm: 0 2px 20px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 8px 40px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.08);
+            --shadow-xl: 0 30px 80px rgba(0, 0, 0, 0.10);
+            --shadow-glow: 0 10px 50px rgba(200, 16, 46, 0.15);
+            --transition-smooth: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-elastic: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+        }
+
+        /* ============================================================
+           RESET Y BASE
+           ============================================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            font-weight: 400;
+            color: var(--color-text);
+            background: var(--color-white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: var(--color-red);
+            color: var(--color-white);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-smooth);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ============================================================
+           ANIMACIONES PREMIUM
+           ============================================================ */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px) scale(0.98);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-80px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(80px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-12px) rotate(0.5deg);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .animate-on-scroll.delay-1 {
+            transition-delay: 0.1s;
+        }
+        .animate-on-scroll.delay-2 {
+            transition-delay: 0.2s;
+        }
+        .animate-on-scroll.delay-3 {
+            transition-delay: 0.3s;
+        }
+        .animate-on-scroll.delay-4 {
+            transition-delay: 0.4s;
+        }
+
+        /* ============================================================
+           BOTONES PREMIUM
+           ============================================================ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 44px;
+            font-family: var(--font-primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition-elastic);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--color-red);
+            color: var(--color-white);
+            box-shadow: 0 4px 20px rgba(200, 16, 46, 0.25);
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, transparent 50%);
+            transform: translateX(-100%);
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .btn-primary:hover::after {
+            transform: translateX(100%);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(200, 16, 46, 0.35);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--color-red);
+            border: 1.5px solid var(--color-red);
+        }
+
+        .btn-outline:hover {
+            background: var(--color-red);
+            color: var(--color-white);
+            transform: translateY(-3px);
+        }
+
+        .btn-white {
+            background: var(--color-white);
+            color: var(--color-red);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .btn-white:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .btn-black {
+            background: var(--color-black);
+            color: var(--color-white);
+        }
+
+        .btn-black:hover {
+            background: var(--color-black-light);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--color-white);
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-ghost:hover {
+            background: var(--color-white);
+            color: var(--color-red);
+            transform: translateY(-3px);
+        }
+
+        /* ============================================================
+           ETIQUETAS
+           ============================================================ */
+        .section-tag {
+            display: inline-block;
+            background: var(--color-red-subtle);
+            color: var(--color-red);
+            padding: 6px 24px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            margin-bottom: 20px;
+        }
+
+        .section-tag-white {
+            background: rgba(255, 255, 255, 0.12);
+            color: var(--color-white);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .section-tag-black {
+            background: var(--color-black);
+            color: var(--color-white);
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 3.4rem;
+            line-height: 1.1;
+            color: var(--color-text);
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-title span {
+            color: var(--color-red);
+            font-style: italic;
+        }
+
+        .section-title-white {
+            color: var(--color-white);
+        }
+
+        .section-title-white span {
+            color: var(--color-gold);
+            font-style: italic;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: var(--color-gray-dark);
+            max-width: 560px;
+            line-height: 1.9;
+        }
+
+        .section-subtitle-white {
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ============================================================
+           HEADER PREMIUM
+           ============================================================ */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: var(--transition-smooth);
+            background: transparent;
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            padding: 14px 0;
+            box-shadow: 0 1px 40px rgba(0, 0, 0, 0.04);
+        }
+
+        .header__inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header__logo a {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            color: var(--color-white);
+            transition: var(--transition-smooth);
+        }
+
+        .header.scrolled .header__logo a {
+            color: var(--color-text);
+        }
+
+        .header__logo img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            display: block;
+            filter: none;
+            transition: var(--transition-smooth);
+        }
+
+        .header:not(.scrolled) .header__logo img {
+            filter: none;
+        }
+
+        .header.scrolled .header__logo img {
+            filter: none;
+        }
+
+        .header__logo-text {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            color: var(--color-white);
+            transition: var(--transition-smooth);
+        }
+
+        .header.scrolled .header__logo-text {
+            color: var(--color-text);
+        }
+
+        .header__logo-text span {
+            color: var(--color-gold);
+        }
+
+        .header__menu {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+
+        .header__menu a {
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: var(--transition-smooth);
+            position: relative;
+            letter-spacing: 0.3px;
+        }
+
+        .header.scrolled .header__menu a {
+            color: var(--color-gray-dark);
+        }
+
+        .header__menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--color-red);
+            transition: var(--transition-smooth);
+            opacity: 0.6;
+        }
+
+        .header__menu a:hover,
+        .header__menu a.active {
+            color: var(--color-white);
+        }
+
+        .header.scrolled .header__menu a:hover,
+        .header.scrolled .header__menu a.active {
+            color: var(--color-text);
+        }
+
+        .header__menu a:hover::after,
+        .header__menu a.active::after {
+            width: 100%;
+        }
+
+        .header__menu .btn-primary {
+            padding: 10px 28px;
+            font-size: 0.75rem;
+        }
+
+        .header__hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .header__hamburger span {
+            display: block;
+            width: 26px;
+            height: 1.5px;
+            background: var(--color-white);
+            border-radius: 2px;
+            transition: var(--transition-smooth);
+        }
+
+        .header.scrolled .header__hamburger span {
+            background: var(--color-text);
+        }
+
+        .header__hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .header__hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        .header__hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ============================================================
+           HERO PREMIUM
+           ============================================================ */
+        .hero {
+            min-height: 100vh;
+            background: var(--color-black);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 140px 0 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -15%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(200, 16, 46, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(200, 16, 46, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero__inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero__content {
+            animation: fadeInLeft 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .hero__badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--color-white);
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            margin-bottom: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .hero__badge img {
+            width: 24px;
+            height: 24px;
+            filter: brightness(0) invert(1);
+        }
+
+        .hero__title {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 4.2rem;
+            line-height: 1.05;
+            color: var(--color-white);
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero__title span {
+            color: var(--color-red);
+            font-style: italic;
+        }
+
+        .hero__subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 480px;
+            line-height: 1.9;
+            margin-bottom: 12px;
+        }
+
+        .hero__location {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--color-gold);
+            font-weight: 500;
+            font-size: 1rem;
+            margin-bottom: 36px;
+        }
+
+        .hero__location i {
+            font-size: 1.1rem;
+        }
+
+        .hero__buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero__image {
+            animation: fadeInRight 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero__image-wrapper {
+            position: relative;
+        }
+
+        .hero__image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -24px;
+            right: -24px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: var(--radius-lg);
+            z-index: -1;
+            transition: var(--transition-smooth);
+        }
+
+        .hero__image-wrapper:hover::before {
+            top: -20px;
+            right: -20px;
+        }
+
+        .hero__image-wrapper img {
+            width: 100%;
+            max-width: 420px;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.04);
+            transition: var(--transition-smooth);
+        }
+
+        .hero__image-wrapper img:hover {
+            transform: scale(1.01);
+        }
+
+        /* ============================================================
+           STATS PREMIUM - NUEVA FUENTE
+           ============================================================ */
+        .stats {
+            padding: 70px 0;
+            background: var(--color-white);
+            border-bottom: 1px solid var(--color-gray);
+        }
+
+        .stats__grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .stats__item {
+            text-align: center;
+            padding: 16px;
+            transition: var(--transition-smooth);
+        }
+
+        .stats__item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stats__number {
+            font-family: var(--font-stats);
+            font-weight: 900;
+            font-size: 3.6rem;
+            color: var(--color-red);
+            line-height: 1;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, var(--color-red), var(--color-red-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stats__number .counter {
+            display: inline-block;
+        }
+
+        .stats__label {
+            color: var(--color-gray-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* ============================================================
+           PILARES PREMIUM
+           ============================================================ */
+        .pilares {
+            padding: 110px 0;
+            background: var(--color-off-white);
+        }
+
+        .pilares__grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 55px;
+        }
+
+        .pilares__item {
+            background: var(--color-white);
+            padding: 44px 32px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            transition: var(--transition-elastic);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0, 0, 0, 0.02);
+            position: relative;
+        }
+
+        .pilares__item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: var(--radius-md);
+            padding: 1px;
+            background: linear-gradient(135deg, var(--color-red), var(--color-black), var(--color-red));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: var(--transition-smooth);
+        }
+
+        .pilares__item:hover::before {
+            opacity: 1;
+        }
+
+        .pilares__item:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pilares__icon {
+            width: 68px;
+            height: 68px;
+            margin: 0 auto 20px;
+            background: var(--color-black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            color: var(--color-white);
+            transition: var(--transition-elastic);
+        }
+
+        .pilares__item:hover .pilares__icon {
+            background: var(--color-red);
+            transform: scale(1.08) rotate(-4deg);
+        }
+
+        .pilares__item h3 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: var(--color-text);
+        }
+
+        .pilares__item p {
+            color: var(--color-gray-dark);
+            font-size: 0.92rem;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        /* ============================================================
+           CONÓCEME PREMIUM
+           ============================================================ */
+        .conoceme {
+            padding: 110px 0;
+            background: var(--color-white);
+        }
+
+        .conoceme__inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .conoceme__image {
+            position: relative;
+        }
+
+        .conoceme__image img {
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            transition: var(--transition-smooth);
+        }
+
+        .conoceme__image img:hover {
+            transform: scale(1.005);
+        }
+
+        .conoceme__image .experience-badge {
+            position: absolute;
+            bottom: -16px;
+            right: -16px;
+            background: var(--color-red);
+            color: var(--color-white);
+            padding: 28px 32px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            box-shadow: var(--shadow-glow);
+            transition: var(--transition-elastic);
+        }
+
+        .conoceme__image .experience-badge:hover {
+            transform: scale(1.04) rotate(-2deg);
+        }
+
+        .conoceme__image .experience-badge .number {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 2.6rem;
+            line-height: 1;
+        }
+
+        .conoceme__image .experience-badge .label {
+            font-size: 0.75rem;
+            opacity: 0.85;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .conoceme__content .section-title {
+            font-size: 3rem;
+        }
+
+        .conoceme__content p {
+            color: var(--color-gray-dark);
+            font-size: 1.05rem;
+            font-weight: 300;
+            line-height: 1.9;
+            margin-bottom: 16px;
+        }
+
+        /* ============================================================
+           NOTICIAS PREMIUM
+           ============================================================ */
+        .noticias {
+            padding: 110px 0;
+            background: var(--color-off-white);
+        }
+
+        .noticias__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 55px;
+        }
+
+        .noticias__card {
+            background: var(--color-white);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: var(--transition-elastic);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0, 0, 0, 0.02);
+        }
+
+        .noticias__card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .noticias__img {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .noticias__img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+
+        .noticias__card:hover .noticias__img img {
+            transform: scale(1.06);
+        }
+
+        .noticias__img .category-tag {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            background: var(--color-red);
+            color: var(--color-white);
+            padding: 4px 18px;
+            border-radius: 50px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .noticias__body {
+            padding: 30px 32px;
+        }
+
+        .noticias__date {
+            font-size: 0.75rem;
+            color: var(--color-gray-dark);
+            font-weight: 300;
+        }
+
+        .noticias__body h3 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin: 8px 0 12px;
+            color: var(--color-text);
+            line-height: 1.3;
+        }
+
+        .noticias__body p {
+            color: var(--color-gray-dark);
+            font-size: 0.92rem;
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+
+        .noticias__link {
+            color: var(--color-red);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition-smooth);
+            font-size: 0.85rem;
+        }
+
+        .noticias__link i {
+            transition: var(--transition-smooth);
+        }
+
+        .noticias__link:hover {
+            gap: 16px;
+        }
+
+        .noticias__link:hover i {
+            transform: translateX(4px);
+        }
+
+        /* ============================================================
+           HUANCAVELICA - SECCIÓN DESTACADA
+           ============================================================ */
+        .huancavelica {
+            padding: 110px 0;
+            background: var(--color-black);
+            color: var(--color-white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .huancavelica::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(200, 16, 46, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .huancavelica__inner {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .huancavelica__image img {
+            border-radius: var(--radius-lg);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .huancavelica__content .section-title {
+            color: var(--color-white);
+        }
+
+        .huancavelica__content .section-title span {
+            color: var(--color-gold);
+        }
+
+        .huancavelica__content p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.05rem;
+            font-weight: 300;
+            line-height: 1.9;
+            margin-bottom: 24px;
+        }
+
+        .huancavelica__content .features {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .huancavelica__content .features span {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 300;
+            font-size: 0.9rem;
+        }
+
+        .huancavelica__content .features span i {
+            color: var(--color-gold);
+        }
+
+        /* ============================================================
+           SÚMATE PREMIUM
+           ============================================================ */
+        .sumate {
+            padding: 110px 0;
+            background: var(--color-white);
+            color: var(--color-text);
+            position: relative;
+        }
+
+        .sumate__inner {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .sumate__content .section-title span {
+            color: var(--color-red);
+        }
+
+        .sumate__content p {
+            color: var(--color-gray-dark);
+            font-size: 1.05rem;
+            font-weight: 300;
+            line-height: 1.9;
+            margin-bottom: 32px;
+        }
+
+        .sumate__content .features {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .sumate__content .features span {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--color-gray-dark);
+            font-weight: 300;
+            font-size: 0.9rem;
+        }
+
+        .sumate__content .features span i {
+            color: var(--color-red);
+        }
+
+        .sumate__form {
+            background: var(--color-off-white);
+            padding: 44px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-gray);
+            transition: var(--transition-smooth);
+        }
+
+        .sumate__form:hover {
+            border-color: var(--color-red);
+            box-shadow: var(--shadow-md);
+        }
+
+        .sumate__form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .sumate__form label {
+            display: block;
+            font-weight: 500;
+            font-size: 0.8rem;
+            color: var(--color-text);
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .sumate__form input,
+        .sumate__form textarea {
+            width: 100%;
+            padding: 14px 20px;
+            background: var(--color-white);
+            border: 1px solid var(--color-gray);
+            border-radius: var(--radius-sm);
+            color: var(--color-text);
+            font-family: var(--font-primary);
+            font-size: 0.95rem;
+            font-weight: 300;
+            transition: var(--transition-smooth);
+        }
+
+        .sumate__form input::placeholder,
+        .sumate__form textarea::placeholder {
+            color: var(--color-gray-dark);
+            font-weight: 300;
+        }
+
+        .sumate__form input:focus,
+        .sumate__form textarea:focus {
+            outline: none;
+            border-color: var(--color-red);
+            box-shadow: 0 0 0 4px rgba(200, 16, 46, 0.06);
+        }
+
+        .sumate__form textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        /* ============================================================
+           FOOTER PREMIUM
+           ============================================================ */
+        .footer {
+            background: var(--color-black);
+            color: var(--color-white);
+            padding: 70px 0 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .footer__inner {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.2fr;
+            gap: 50px;
+            padding-bottom: 50px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .footer__logo {
+            width: 52px;
+            height: 52px;
+            object-fit: contain;
+            margin-bottom: 14px;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer__slogan {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.95rem;
+            font-weight: 300;
+        }
+
+        .footer__col h4 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 18px;
+            color: var(--color-gold);
+            letter-spacing: 0.5px;
+        }
+
+        .footer__col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer__col ul li a {
+            color: rgba(255, 255, 255, 0.4);
+            font-weight: 300;
+            transition: var(--transition-smooth);
+            font-size: 0.9rem;
+        }
+
+        .footer__col ul li a:hover {
+            color: var(--color-white);
+            padding-left: 6px;
+        }
+
+        .footer__social {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .footer__social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+            transition: var(--transition-elastic);
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .footer__social a:hover {
+            background: var(--color-red);
+            color: var(--color-white);
+            transform: translateY(-4px) scale(1.04);
+            box-shadow: 0 8px 30px rgba(200, 16, 46, 0.2);
+        }
+
+        .btn-footer {
+            background: var(--color-red);
+            color: var(--color-white);
+            padding: 12px 32px;
+            font-size: 0.75rem;
+            margin-top: 12px;
+        }
+
+        .btn-footer:hover {
+            background: var(--color-red-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(200, 16, 46, 0.25);
+        }
+
+        .footer__bottom {
+            padding: 28px 0;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.25);
+            font-size: 0.8rem;
+            font-weight: 300;
+        }
+
+        /* ============================================================
+           RESPONSIVE PREMIUM
+           ============================================================ */
+
+        @media (max-width: 1024px) {
+            .hero__title {
+                font-size: 3.6rem;
+            }
+
+            .section-title {
+                font-size: 2.8rem;
+            }
+
+            .pilares__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .noticias__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer__inner {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .huancavelica__inner {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .sumate__inner {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header__menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                padding: 28px 24px;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                gap: 18px;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+                border-top: 1px solid var(--color-gray);
+            }
+
+            .header__menu.open {
+                display: flex;
+            }
+
+            .header__menu a {
+                color: var(--color-text) !important;
+            }
+
+            .header__menu a::after {
+                background: var(--color-red) !important;
+            }
+
+            .header__hamburger {
+                display: flex;
+            }
+
+            .hero {
+                padding: 120px 0 60px;
+            }
+
+            .hero__inner {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .hero__title {
+                font-size: 2.8rem;
+            }
+
+            .hero__subtitle {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero__buttons {
+                justify-content: center;
+            }
+
+            .hero__image-wrapper img {
+                max-width: 300px;
+            }
+
+            .section-title {
+                font-size: 2.4rem;
+            }
+
+            .pilares__grid {
+                grid-template-columns: 1fr;
+                max-width: 420px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .conoceme__inner {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .conoceme__image .experience-badge {
+                position: relative;
+                bottom: 0;
+                right: 0;
+                margin-top: -16px;
+                display: inline-block;
+            }
+
+            .huancavelica__inner {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .huancavelica__content .features {
+                justify-content: center;
+            }
+
+            .noticias__grid {
+                grid-template-columns: 1fr;
+                max-width: 420px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .sumate__inner {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .sumate__content .features {
+                justify-content: center;
+            }
+
+            .sumate__form {
+                padding: 28px;
+            }
+
+            .footer__inner {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .footer__social {
+                justify-content: center;
+            }
+
+            .stats__grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+
+            .stats__number {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero__title {
+                font-size: 2.2rem;
+            }
+
+            .hero__buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero__buttons .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .conoceme__image .experience-badge {
+                padding: 20px 24px;
+            }
+
+            .conoceme__image .experience-badge .number {
+                font-size: 2rem;
+            }
+
+            .sumate__form {
+                padding: 20px;
+            }
+
+            .stats__number {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================
+    HEADER
+    ============================================================ -->
+    <header class="header" id="header">
+        <div class="container header__inner">
+            <div class="header__logo">
+                <a href="#">
+                    <img src="fca_simbolo.jpeg" alt="Acción Popular" />
+                    <span class="header__logo-text">F<span style="color: var(--color-red);">.</span> Arananda</span>
+                </a>
+            </div>
+
+            <nav class="header__nav">
+                <ul class="header__menu" id="mainMenu">
+                    <li><a href="#" class="active">Inicio</a></li>
+                    <li><a href="#conoceme">Conóceme</a></li>
+                    <li><a href="#pilares">Propuestas</a></li>
+                    <li><a href="#huancavelica">Huancavelica</a></li>
+                    <li><a href="#noticias">Noticias</a></li>
+                    <li><a href="#sumate" class="btn btn-primary" style="padding: 10px 28px; font-size: 0.75rem;">Súmate</a></li>
+                </ul>
+            </nav>
+
+            <button class="header__hamburger" id="hamburger" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ============================================================
+    HERO
+    ============================================================ -->
+    <section class="hero" id="inicio">
+        <div class="container hero__inner">
+            <div class="hero__content">
+                <div class="hero__badge">
+                    <img src="fca_simbolo.jpeg" alt="Acción Popular" />
+                    Acción Popular
+                </div>
+                <h1 class="hero__title">
+                    Fernando Clemer<br />
+                    <span>Arananda</span>
+                </h1>
+                <p class="hero__subtitle">
+                    Comprometido con el desarrollo y bienestar de Huancavelica.
+                </p>
+                <div class="hero__location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Candidato a la Provincia de Huancavelica
+                </div>
+                <div class="hero__buttons">
+                    <a href="#sumate" class="btn btn-white">
+                        <i class="fas fa-handshake"></i> Súmate
+                    </a>
+                    <a href="conoceme.html" class="btn btn-ghost">
+                        <i class="fas fa-play-circle"></i> Conóceme
+                    </a>
+                </div>
+            </div>
+            <div class="hero__image">
+                <div class="hero__image-wrapper">
+                    <img src="fca.jpeg" alt="Fernando Clemer Arananda" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    STATS - CON NUEVA FUENTE
+    ============================================================ -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats__grid">
+                <div class="stats__item animate-on-scroll">
+                    <div class="stats__number"><span class="counter" data-target="5">0</span>K+</div>
+                    <div class="stats__label">Voluntarios Activos</div>
+                </div>
+                <div class="stats__item animate-on-scroll delay-1">
+                    <div class="stats__number"><span class="counter" data-target="12">0</span></div>
+                    <div class="stats__label">Distritos Recorridos</div>
+                </div>
+                <div class="stats__item animate-on-scroll delay-2">
+                    <div class="stats__number"><span class="counter" data-target="50">0</span>+</div>
+                    <div class="stats__label">Propuestas Presentadas</div>
+                </div>
+                <div class="stats__item animate-on-scroll delay-3">
+                    <div class="stats__number"><span class="counter" data-target="10">0</span>+</div>
+                    <div class="stats__label">Años de Experiencia</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    PILARES
+    ============================================================ -->
+    <section class="pilares" id="pilares">
+        <div class="container">
+            <div class="text-center animate-on-scroll">
+                <span class="section-tag">Nuestros Pilares</span>
+                <h2 class="section-title">Ejes de <span>Transformación</span></h2>
+                <p class="section-subtitle mx-auto">Cuatro pilares fundamentales para el desarrollo de Huancavelica</p>
+            </div>
+            <div class="pilares__grid">
+                <div class="pilares__item animate-on-scroll">
+                    <div class="pilares__icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Seguridad Ciudadana</h3>
+                    <p>Plan integral para recuperar la tranquilidad de las familias huancavelicanas.</p>
+                </div>
+                <div class="pilares__item animate-on-scroll delay-1">
+                    <div class="pilares__icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Salud y Educación</h3>
+                    <p>Hospitales modernos y educación de calidad para todos los distritos.</p>
+                </div>
+                <div class="pilares__item animate-on-scroll delay-2">
+                    <div class="pilares__icon">
+                        <i class="fas fa-road"></i>
+                    </div>
+                    <h3>Infraestructura</h3>
+                    <p>Obras que conectan Huancavelica y generan desarrollo regional.</p>
+                </div>
+                <div class="pilares__item animate-on-scroll delay-3">
+                    <div class="pilares__icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3>Lucha Anticorrupción</h3>
+                    <p>Gobierno transparente con cero tolerancia a la corrupción.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    CONÓCEME
+    ============================================================ -->
+    <section class="conoceme" id="conoceme">
+        <div class="container conoceme__inner">
+            <div class="conoceme__image animate-on-scroll">
+                <img src="fca.jpeg" alt="Fernando Clemer Arananda" />
+                <div class="experience-badge">
+                    <div class="number">10+</div>
+                    <div class="label">Años de trayectoria</div>
+                </div>
+            </div>
+            <div class="conoceme__content animate-on-scroll">
+                <span class="section-tag">Mi Historia</span>
+                <h2 class="section-title">Conoce mi <span>trayectoria</span></h2>
+                <p>
+                    Te invito a conocer más de mi infancia, mi formación profesional
+                    y mi compromiso con el desarrollo de Huancavelica.
+                </p>
+                <p>
+                    Una trayectoria forjada con esfuerzo, valores y el compromiso de
+                    servir a mi pueblo con honestidad y eficiencia.
+                </p>
+                <a href="conoceme.html" class="btn btn-primary">
+                    <i class="fas fa-arrow-right"></i> Ingresa Aquí
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    HUANCAVELICA (SECCIÓN DESTACADA)
+    ============================================================ -->
+    <section class="huancavelica" id="huancavelica">
+        <div class="container huancavelica__inner">
+            <div class="huancavelica__image animate-on-scroll">
+                <img src="fca_hvca.jpeg" alt="Huancavelica" />
+            </div>
+            <div class="huancavelica__content animate-on-scroll delay-1">
+                <span class="section-tag section-tag-white">Huancavelica</span>
+                <h2 class="section-title section-title-white">Compromiso con <span>nuestra tierra</span></h2>
+                <p>
+                    Huancavelica merece un desarrollo integral que impulse su economía,
+                    mejore sus servicios y brinde oportunidades a todos sus habitantes.
+                </p>
+                <p>
+                    Trabajamos por una provincia con más inversión, mejor infraestructura
+                    y un gobierno cercano a la gente.
+                </p>
+                <div class="features">
+                    <span><i class="fas fa-check-circle"></i> Desarrollo regional</span>
+                    <span><i class="fas fa-check-circle"></i> Obras para todos</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    NOTICIAS
+    ============================================================ -->
+    <section class="noticias" id="noticias">
+        <div class="container">
+            <div class="text-center animate-on-scroll">
+                <span class="section-tag">Noticias</span>
+                <h2 class="section-title">Últimas <span>Actualizaciones</span></h2>
+                <p class="section-subtitle mx-auto">Mantente informado sobre las actividades y propuestas de nuestra campaña</p>
+            </div>
+            <div class="noticias__grid">
+                <article class="noticias__card animate-on-scroll">
+                    <div class="noticias__img">
+                        <img src="fca_hvca.jpeg" alt="Noticia 1" />
+                        <span class="category-tag">Política</span>
+                    </div>
+                    <div class="noticias__body">
+                        <span class="noticias__date"><i class="far fa-calendar-alt" style="margin-right: 6px;"></i> 18 de julio, 2026</span>
+                        <h3>Fernando Arananda presenta su plan de gobierno</h3>
+                        <p>El candidato de Acción Popular anunció sus principales propuestas para Huancavelica.</p>
+                        <a href="#" class="noticias__link">
+                            Leer más <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                <article class="noticias__card animate-on-scroll delay-1">
+                    <div class="noticias__img">
+                        <img src="fca.jpeg" alt="Noticia 2" />
+                        <span class="category-tag">Campaña</span>
+                    </div>
+                    <div class="noticias__body">
+                        <span class="noticias__date"><i class="far fa-calendar-alt" style="margin-right: 6px;"></i> 15 de julio, 2026</span>
+                        <h3>Más de 5 mil voluntarios se suman a la campaña</h3>
+                        <p>El movimiento ciudadano crece en Huancavelica con jóvenes comprometidos con el cambio.</p>
+                        <a href="#" class="noticias__link">
+                            Leer más <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                <article class="noticias__card animate-on-scroll delay-2">
+                    <div class="noticias__img">
+                        <img src="fca_hvca.jpeg" alt="Noticia 3" />
+                        <span class="category-tag">Desarrollo</span>
+                    </div>
+                    <div class="noticias__body">
+                        <span class="noticias__date"><i class="far fa-calendar-alt" style="margin-right: 6px;"></i> 12 de julio, 2026</span>
+                        <h3>Propuesta de infraestructura para Huancavelica</h3>
+                        <p>Expertos avalan el plan de desarrollo integral presentado por el candidato.</p>
+                        <a href="#" class="noticias__link">
+                            Leer más <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SÚMATE
+    ============================================================ -->
+    <section class="sumate" id="sumate">
+        <div class="container sumate__inner">
+            <div class="sumate__content animate-on-scroll">
+                <span class="section-tag">Súmate</span>
+                <h2 class="section-title">Sé parte del <span>cambio</span></h2>
+                <p>
+                    Únete a miles de huancavelicanos que ya están construyendo el futuro de la provincia.
+                    Tu voz, tu energía y tu compromiso son fundamentales para transformar Huancavelica.
+                </p>
+                <div class="features">
+                    <span><i class="fas fa-check-circle"></i> Participa activamente</span>
+                    <span><i class="fas fa-check-circle"></i> Recibe información</span>
+                </div>
+            </div>
+            <div class="sumate__form animate-on-scroll delay-1">
+                <form id="formSumate">
+                    <div class="form-group">
+                        <label for="nombre">Nombres y Apellidos</label>
+                        <input type="text" id="nombre" placeholder="Nombres y Apellidos" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" placeholder="Correo Electrónico" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Número Telefónico</label>
+                        <input type="tel" id="telefono" placeholder="987654321" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="direccion">Lugar de Residencia</label>
+                        <textarea id="direccion" rows="3" placeholder="Distrito / Centro Poblado"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                        <i class="fas fa-handshake"></i> REGISTRARME
+                    </button>
+                </form>
+                <div id="formMessage" style="margin-top: 16px; text-align: center; font-weight: 400;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <footer class="footer">
+        <div class="container footer__inner">
+            <div class="footer__col">
+                <img src="fca_simbolo.jpeg" alt="Acción Popular" class="footer__logo" />
+                <p class="footer__slogan">Por el desarrollo de Huancavelica</p>
+            </div>
+            <div class="footer__col">
+                <h4>Enlaces</h4>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#conoceme">Conóceme</a></li>
+                    <li><a href="#pilares">Propuestas</a></li>
+                    <li><a href="#huancavelica">Huancavelica</a></li>
+                    <li><a href="#sumate">Súmate</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4>Redes Sociales</h4>
+                <div class="footer__social">
+                    <a href="https://facebook.com/fclementearana" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/fclementearana" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://youtube.com/@fclementearana" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://tiktok.com/@fclementearana" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://instagram.com/fclementearana" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer__col">
+                <h4>Contacto</h4>
+                <p style="color: rgba(255,255,255,0.4); font-size: 0.9rem; font-weight: 300;">
+                    <i class="fas fa-envelope" style="margin-right: 8px;"></i> fclementearana@gmail.com
+                </p>
+                <a href="#sumate" class="btn btn-footer">
+                    ÚNETE AQUÍ
+                </a>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <div class="container">
+                <p>© 2026 Fernando Clemer Arananda - Acción Popular. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+    SCRIPTS
+    ============================================================ -->
+    <script>
+        // ============================================================
+        // HEADER SCROLL
+        // ============================================================
+        const header = document.getElementById('header');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', function() {
+            const currentScroll = window.scrollY;
+            if (currentScroll > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            lastScroll = currentScroll;
+        });
+
+        // ============================================================
+        // HAMBURGUESA
+        // ============================================================
+        const hamburger = document.getElementById('hamburger');
+        const mainMenu = document.getElementById('mainMenu');
+
+        hamburger.addEventListener('click', function() {
+            this.classList.toggle('active');
+            mainMenu.classList.toggle('open');
+        });
+
+        document.querySelectorAll('.header__menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                mainMenu.classList.remove('open');
+            });
+        });
+
+        // ============================================================
+        // SCROLL ANIMATION
+        // ============================================================
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.08,
+            rootMargin: '0px 0px -30px 0px'
+        });
+
+        animateElements.forEach(el => observer.observe(el));
+
+        // ============================================================
+        // COUNTER ANIMATION
+        // ============================================================
+        const counters = document.querySelectorAll('.counter');
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = parseInt(entry.target.getAttribute('data-target'));
+                    let current = 0;
+                    const increment = target / 50;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            entry.target.textContent = target;
+                            clearInterval(timer);
+                        } else {
+                            entry.target.textContent = Math.floor(current);
+                        }
+                    }, 25);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        counters.forEach(counter => counterObserver.observe(counter));
+
+        // ============================================================
+        // FORMULARIO
+        // ============================================================
+        const form = document.getElementById('formSumate');
+        const message = document.getElementById('formMessage');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            message.style.color = '#C8102E';
+            message.textContent = '✅ ¡Gracias por sumarte! Pronto recibirás más información.';
+
+            form.reset();
+
+            setTimeout(() => {
+                message.textContent = '';
+            }, 5000);
+        });
+
+        // ============================================================
+        // SMOOTH SCROLL
+        // ============================================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
