@@ -331,7 +331,7 @@
         }
 
         /* ============================================================
-           HEADER PREMIUM
+           HEADER PREMIUM - CON MINI LOGO Y NOMBRE COMPLETO
            ============================================================ */
         .header {
             position: fixed;
@@ -339,7 +339,7 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            padding: 20px 0;
+            padding: 16px 0;
             transition: var(--transition-smooth);
             background: transparent;
         }
@@ -348,7 +348,7 @@
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(24px) saturate(180%);
             -webkit-backdrop-filter: blur(24px) saturate(180%);
-            padding: 14px 0;
+            padding: 10px 0;
             box-shadow: 0 1px 40px rgba(0, 0, 0, 0.04);
         }
 
@@ -358,50 +358,59 @@
             justify-content: space-between;
         }
 
-        .header__logo a {
+        .header__brand {
             display: flex;
             align-items: center;
-            gap: 14px;
-            color: var(--color-white);
+            gap: 12px;
             transition: var(--transition-smooth);
         }
 
-        .header.scrolled .header__logo a {
-            color: var(--color-text);
-        }
-
-        .header__logo img {
-            width: 48px;
-            height: 48px;
+        .header__brand img {
+            width: 36px;
+            height: 36px;
             object-fit: contain;
             display: block;
-            filter: none;
+            filter: none !important;
             transition: var(--transition-smooth);
         }
 
-        .header:not(.scrolled) .header__logo img {
-            filter: none;
-        }
-
-        .header.scrolled .header__logo img {
-            filter: none;
-        }
-
-        .header__logo-text {
+        .header__brand-text {
             font-family: var(--font-display);
             font-weight: 700;
-            font-size: 1rem;
-            letter-spacing: 0.5px;
+            font-size: 1.1rem;
             color: var(--color-white);
             transition: var(--transition-smooth);
+            letter-spacing: 0.3px;
+            line-height: 1.2;
         }
 
-        .header.scrolled .header__logo-text {
+        .header__brand-text span {
+            color: var(--color-red);
+        }
+
+        .header.scrolled .header__brand-text {
             color: var(--color-text);
         }
 
-        .header__logo-text span {
-            color: var(--color-gold);
+        /* Responsive del header brand */
+        @media (max-width: 768px) {
+            .header__brand img {
+                width: 30px;
+                height: 30px;
+            }
+            .header__brand-text {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header__brand img {
+                width: 26px;
+                height: 26px;
+            }
+            .header__brand-text {
+                font-size: 0.85rem;
+            }
         }
 
         .header__menu {
@@ -450,9 +459,42 @@
             width: 100%;
         }
 
-        .header__menu .btn-primary {
+        .header__menu .btn-sumate {
             padding: 10px 28px;
             font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            background: var(--color-red);
+            color: var(--color-white);
+            border: none;
+            border-radius: 50px;
+            transition: var(--transition-elastic);
+            box-shadow: 0 4px 16px rgba(200, 16, 46, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header__menu .btn-sumate:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 8px 30px rgba(200, 16, 46, 0.3);
+            background: var(--color-red-dark);
+        }
+
+        .header.scrolled .header__menu .btn-sumate {
+            background: var(--color-red);
+            color: var(--color-white);
+            box-shadow: 0 4px 16px rgba(200, 16, 46, 0.2);
+        }
+
+        .header.scrolled .header__menu .btn-sumate:hover {
+            background: var(--color-red-dark);
+            box-shadow: 0 8px 30px rgba(200, 16, 46, 0.3);
+        }
+
+        .header__menu .btn-sumate::after {
+            display: none;
         }
 
         .header__hamburger {
@@ -559,7 +601,8 @@
         .hero__badge img {
             width: 24px;
             height: 24px;
-            filter: brightness(0) invert(1);
+            filter: none;
+            display: block;
         }
 
         .hero__title {
@@ -1165,7 +1208,8 @@
             height: 52px;
             object-fit: contain;
             margin-bottom: 14px;
-            filter: brightness(0) invert(1);
+            filter: none;
+            display: block;
         }
 
         .footer__slogan {
@@ -1461,15 +1505,15 @@
 <body>
 
     <!-- ============================================================
-    HEADER
+    HEADER - CON MINI LOGO Y NOMBRE COMPLETO
     ============================================================ -->
     <header class="header" id="header">
         <div class="container header__inner">
-            <div class="header__logo">
-                <a href="#">
-                    <img src="fca_aplogo.jpeg" alt="Acción Popular" />
-                    <span class="header__logo-text">F<span style="color: var(--color-red);">.</span> Arana</span>
-                </a>
+            <div class="header__brand">
+                <img src="fca_simbolo.jpeg" alt="Acción Popular" />
+                <span class="header__brand-text">
+                    Fernando Clemente <span>Arana</span>
+                </span>
             </div>
 
             <nav class="header__nav">
@@ -1479,7 +1523,11 @@
                     <li><a href="#pilares">Propuestas</a></li>
                     <li><a href="#huancavelica">Huancavelica</a></li>
                     <li><a href="#noticias">Noticias</a></li>
-                    <li><a href="#sumate" class="btn btn-primary" style="padding: 10px 28px; font-size: 0.75rem;">Súmate</a></li>
+                    <li>
+                        <a href="#sumate" class="btn-sumate">
+                            <i class="fas fa-handshake"></i> Súmate
+                        </a>
+                    </li>
                 </ul>
             </nav>
 
@@ -1498,7 +1546,7 @@
         <div class="container hero__inner">
             <div class="hero__content">
                 <div class="hero__badge">
-                    <img src="fca_simbolo.jpeg" alt="Acción Popular" />
+                    <img src="fca_simbolo.jpeg" alt="Acción Popular" style="filter: none; display: block;" />
                     Acción Popular
                 </div>
                 <h1 class="hero__title">
@@ -1530,7 +1578,7 @@
     </section>
 
     <!-- ============================================================
-    STATS - CON NUEVA FUENTE
+    STATS
     ============================================================ -->
     <section class="stats">
         <div class="container">
@@ -1629,7 +1677,7 @@
     </section>
 
     <!-- ============================================================
-    HUANCAVELICA (SECCIÓN DESTACADA)
+    HUANCAVELICA
     ============================================================ -->
     <section class="huancavelica" id="huancavelica">
         <div class="container huancavelica__inner">
@@ -1762,7 +1810,7 @@
     <footer class="footer">
         <div class="container footer__inner">
             <div class="footer__col">
-                <img src="fca_simbolo.jpeg" alt="Acción Popular" class="footer__logo" />
+                <img src="fca_simbolo.jpeg" alt="Acción Popular" class="footer__logo" style="filter: none; display: block;" />
                 <p class="footer__slogan">Por el desarrollo de Huancavelica</p>
             </div>
             <div class="footer__col">
