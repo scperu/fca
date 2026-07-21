@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>🌟 Muro de Honor | Fernando Clemente Arana</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600;700&family=Playfair+Display:wght@400;700&family=Space+Grotesk:wght@300;400;500&family=Cormorant+Garamond:wght@300;600;700&family=Orbitron:wght@400;700&family=Great+Vibes&family=Alex+Brush&family=Pacifico&family=Dancing+Script&family=Lobster&family=Allura&family=Parisienne&family=Abril+Fatface&family=Bangers&family=Fredoka+One&family=Monoton&family=Russo+One&family=Press+Start+2P&family=UnifrakturMaguntia&family=Texturina&family=Goudy+Bookletter+1911&family=MedievalSharp&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #0a0a12;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+            color: #fff;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .universo-campaign {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(ellipse at center, #0f0a1e 0%, #050508 100%);
+            overflow: hidden;
+        }
+
+        /* ===== FONDO ===== */
+        .constelacion-fondo {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.08;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .apoyo-fondo {
+            position: absolute;
+            font-weight: 300;
+            white-space: nowrap;
+            user-select: none;
+            opacity: 0.02;
+            letter-spacing: 1px;
+            animation: flotarFondo 30s infinite alternate ease-in-out;
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.1);
+        }
+
+        @keyframes flotarFondo {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(20px, -15px) scale(1.03); }
+            100% { transform: translate(-15px, 20px) scale(0.97); }
+        }
+
+        /* ===== CAPA PRINCIPAL ===== */
+        .capa-principal {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* ===== NOMBRE PROTAGONISTA ===== */
+        .nombre-protagonista {
+            position: absolute;
+            font-weight: 700;
+            font-size: 2.8rem;
+            letter-spacing: 6px;
+            /* ✅ ELIMINADO: text-transform: uppercase; */
+            text-transform: none;
+            opacity: 0;
+            z-index: 20;
+            pointer-events: none;
+            text-shadow: 0 0 40px currentColor, 0 0 80px currentColor, 0 0 120px currentColor;
+            transform-origin: center;
+            white-space: nowrap;
+            filter: drop-shadow(0 0 30px currentColor);
+            will-change: transform, opacity;
+        }
+
+        /* ===== EFECTOS DE ENTRADA (13 EFECTOS) ===== */
+        @keyframes efectoExplosionCentro {
+            0% { opacity: 0; transform: scale(0) rotate(-180deg); filter: blur(30px); }
+            40% { transform: scale(1.5) rotate(10deg); filter: blur(0); }
+            70% { transform: scale(0.9) rotate(-5deg); }
+            100% { opacity: 1; transform: scale(1) rotate(0deg); filter: blur(0); }
+        }
+
+        @keyframes efectoMeteoritoCentro {
+            0% { opacity: 0; transform: translate(-300px, -300px) scale(0.2) rotate(-60deg); filter: blur(20px); }
+            60% { transform: translate(20px, -10px) scale(1.2) rotate(5deg); filter: blur(0); }
+            100% { opacity: 1; transform: translate(0, 0) scale(1) rotate(0deg); filter: blur(0); }
+        }
+
+        @keyframes efectoCoronaCentro {
+            0% { opacity: 0; transform: scale(0.3) rotate(-30deg); filter: blur(25px); }
+            50% { transform: scale(1.4) rotate(5deg); filter: blur(0); text-shadow: 0 0 150px currentColor; }
+            100% { opacity: 1; transform: scale(1) rotate(0deg); filter: blur(0); }
+        }
+
+        @keyframes efectoSupernovaCentro {
+            0% { opacity: 0; transform: scale(0) rotate(0deg); }
+            30% { transform: scale(2.5) rotate(90deg); opacity: 0.5; filter: blur(10px); }
+            60% { transform: scale(0.8) rotate(180deg); opacity: 0.8; }
+            100% { opacity: 1; transform: scale(1) rotate(360deg); filter: blur(0); }
+        }
+
+        @keyframes efectoGlitchCentro {
+            0% { opacity: 0; transform: translate(-30px, 15px) skewX(15deg); filter: blur(5px); }
+            10% { transform: translate(30px, -15px) skewX(-15deg); }
+            20% { transform: translate(-15px, 8px) skewX(8deg); }
+            30% { transform: translate(15px, -8px) skewX(-8deg); }
+            100% { opacity: 1; transform: translate(0, 0) skewX(0deg); filter: blur(0); }
+        }
+
+        @keyframes efectoPortalCentro {
+            0% { opacity: 0; transform: perspective(1000px) rotateX(90deg) scale(0.3) rotateY(90deg); filter: blur(30px); }
+            100% { opacity: 1; transform: perspective(1000px) rotateX(0deg) scale(1) rotateY(0deg); filter: blur(0); }
+        }
+
+        @keyframes efectoBounceCentro {
+            0% { opacity: 0; transform: scale(0.2); }
+            40% { transform: scale(1.4); }
+            60% { transform: scale(0.8); }
+            80% { transform: scale(1.1); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes efectoWaveCentro {
+            0% { opacity: 0; transform: scale(0.3) rotate(-15deg); filter: blur(10px); }
+            25% { transform: scale(1.3) rotate(5deg); }
+            50% { transform: scale(0.8) rotate(-3deg); }
+            75% { transform: scale(1.1) rotate(2deg); }
+            100% { opacity: 1; transform: scale(1) rotate(0deg); filter: blur(0); }
+        }
+
+        @keyframes efectoRayoCentro {
+            0% { opacity: 0; transform: scale(0.3) rotate(15deg) skewX(20deg); clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); filter: blur(10px); }
+            100% { opacity: 1; transform: scale(1) rotate(0deg) skewX(0deg); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); filter: blur(0); }
+        }
+
+        @keyframes efectoEspiralCentro {
+            0% { opacity: 0; transform: scale(0) rotate(720deg) translateX(100px); filter: blur(20px); }
+            100% { opacity: 1; transform: scale(1) rotate(0deg) translateX(0); filter: blur(0); }
+        }
+
+        @keyframes efectoFuegoCentro {
+            0% { opacity: 0; transform: scale(0.5) rotate(-5deg); filter: blur(15px); text-shadow: 0 0 0 transparent; }
+            50% { transform: scale(1.3) rotate(3deg); filter: blur(0); text-shadow: 0 0 100px currentColor; }
+            100% { opacity: 1; transform: scale(1) rotate(0deg); filter: blur(0); }
+        }
+
+        @keyframes efectoRelampagoCentro {
+            0% { opacity: 0; transform: scale(0) rotate(-90deg) skewX(30deg); filter: blur(25px); }
+            40% { transform: scale(1.6) rotate(5deg) skewX(-10deg); filter: blur(0); }
+            80% { transform: scale(0.85) rotate(-3deg) skewX(5deg); }
+            100% { opacity: 1; transform: scale(1) rotate(0deg) skewX(0deg); filter: blur(0); }
+        }
+
+        @keyframes efectoNebulosaCentro {
+            0% { opacity: 0; transform: scale(0.1) rotate(0deg) translateY(50px); filter: blur(30px); }
+            50% { transform: scale(1.2) rotate(180deg) translateY(-10px); filter: blur(0); opacity: 0.8; }
+            100% { opacity: 1; transform: scale(1) rotate(360deg) translateY(0); filter: blur(0); }
+        }
+
+        .nombre-protagonista.efecto-explosion { animation: efectoExplosionCentro 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+        .nombre-protagonista.efecto-meteorito { animation: efectoMeteoritoCentro 1.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+        .nombre-protagonista.efecto-corona { animation: efectoCoronaCentro 1.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+        .nombre-protagonista.efecto-supernova { animation: efectoSupernovaCentro 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+        .nombre-protagonista.efecto-glitch { animation: efectoGlitchCentro 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+        .nombre-protagonista.efecto-portal { animation: efectoPortalCentro 1.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+        .nombre-protagonista.efecto-bounce { animation: efectoBounceCentro 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+        .nombre-protagonista.efecto-wave { animation: efectoWaveCentro 1.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+        .nombre-protagonista.efecto-rayo { animation: efectoRayoCentro 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+        .nombre-protagonista.efecto-espiral { animation: efectoEspiralCentro 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+        .nombre-protagonista.efecto-fuego { animation: efectoFuegoCentro 1.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+        .nombre-protagonista.efecto-relampago { animation: efectoRelampagoCentro 1.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+        .nombre-protagonista.efecto-nebulosa { animation: efectoNebulosaCentro 1.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+
+        /* ===== VIAJE A LA ESQUINA ===== */
+        @keyframes viajarEsquinaDesktop {
+            0% { opacity: 1; transform: scale(1) rotate(0deg) translate(-50%, -50%); filter: blur(0); top: 50%; left: 50%; }
+            100% { opacity: 0.4; transform: scale(0.35) rotate(3deg) translate(0, 0); filter: blur(0.5px); top: 15%; left: 88%; }
+        }
+
+        @keyframes viajarEsquinaTablet {
+            0% { opacity: 1; transform: scale(1) rotate(0deg) translate(-50%, -50%); filter: blur(0); top: 50%; left: 50%; }
+            100% { opacity: 0.4; transform: scale(0.25) rotate(3deg) translate(0, 0); filter: blur(0.5px); top: 12%; left: 85%; }
+        }
+
+        @keyframes viajarEsquinaMovil {
+            0% { opacity: 1; transform: scale(1) rotate(0deg) translate(-50%, -50%); filter: blur(0); top: 50%; left: 50%; }
+            100% { opacity: 0.4; transform: scale(0.2) rotate(3deg) translate(0, 0); filter: blur(0.5px); top: 10%; left: 82%; }
+        }
+
+        .nombre-protagonista.viajando {
+            animation: viajarEsquinaDesktop 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+            pointer-events: none !important;
+        }
+
+        /* ===== LISTA EN LA ESQUINA ===== */
+        .lista-esquina {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            z-index: 15;
+            max-height: 80vh;
+            overflow-y: auto;
+            width: 280px;
+            padding: 15px 20px;
+            background: rgba(255,255,255,0.01);
+            border: 1px solid rgba(255,255,255,0.02);
+            border-radius: 12px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255,255,255,0.03) transparent;
+            transition: opacity 0.5s ease;
+            opacity: 0.3;
+        }
+
+        .lista-esquina:hover {
+            opacity: 0.9;
+        }
+
+        .lista-esquina::-webkit-scrollbar {
+            width: 2px;
+        }
+        .lista-esquina::-webkit-scrollbar-track { background: transparent; }
+        .lista-esquina::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.05); border-radius: 10px; }
+
+        .lista-titulo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            font-size: 0.6rem;
+            color: rgba(255,255,255,0.08);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.02);
+            margin-bottom: 10px;
+        }
+
+        .lista-item {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 0.65rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-bottom: 2px;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            opacity: 0;
+            transform: translateX(-10px);
+            animation: aparecerEnLista 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            /* ✅ Los nombres en la lista ya están en formato normal */
+        }
+
+        .lista-item:hover {
+            background: rgba(255,255,255,0.02);
+            padding-left: 12px;
+        }
+
+        .lista-item .numero {
+            color: rgba(255,255,255,0.05);
+            margin-right: 8px;
+            font-weight: 200;
+            font-size: 0.5rem;
+        }
+
+        @keyframes aparecerEnLista {
+            0% { opacity: 0; transform: translateX(-10px) scale(0.95); }
+            100% { opacity: 1; transform: translateX(0) scale(1); }
+        }
+
+        /* ===== MENSAJE VACÍO ===== */
+        .lista-vacia {
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            font-weight: 200;
+            font-size: 0.55rem;
+            color: rgba(255,255,255,0.04);
+            letter-spacing: 3px;
+            padding: 20px 0;
+            animation: pulseVacio 3s infinite ease-in-out;
+        }
+
+        @keyframes pulseVacio {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+
+        /* ===== FOOTER ===== */
+        .footer-campaign {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            z-index: 20;
+            text-align: center;
+            pointer-events: none;
+            padding: 0 20px;
+        }
+
+        .footer-content {
+            display: inline-block;
+            padding: 14px 32px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 16px;
+            box-shadow: 0 0 60px rgba(255, 0, 0, 0.03);
+        }
+
+        .candidate-name {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            background: linear-gradient(135deg, #ff0000, #ffffff, #1a1a1a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 3px;
+            text-shadow: 0 0 40px rgba(255, 0, 0, 0.1);
+        }
+
+        .candidate-slogan {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.15);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        .candidate-party {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 0.5rem;
+            color: rgba(255, 255, 255, 0.06);
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            margin-top: 3px;
+        }
+
+        .badge-contador {
+            position: absolute;
+            bottom: 110px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+            font-weight: 200;
+            font-size: 0.5rem;
+            color: rgba(255, 255, 255, 0.02);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            pointer-events: none;
+        }
+
+        .badge-contador strong {
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.04);
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            .nombre-protagonista {
+                font-size: 1.8rem;
+                letter-spacing: 4px;
+            }
+            .nombre-protagonista.viajando {
+                animation: viajarEsquinaTablet 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+            }
+            .lista-esquina { width: 200px; right: 15px; top: 15px; padding: 10px 14px; max-height: 70vh; }
+            .lista-item { font-size: 0.55rem; padding: 3px 6px; }
+            .lista-titulo { font-size: 0.5rem; letter-spacing: 4px; }
+            .candidate-name { font-size: 1.1rem; }
+            .candidate-slogan { font-size: 0.55rem; letter-spacing: 4px; }
+            .candidate-party { font-size: 0.45rem; letter-spacing: 6px; }
+            .badge-contador { font-size: 0.4rem; bottom: 92px; }
+            .footer-content { padding: 10px 20px; }
+        }
+
+        @media (max-width: 480px) {
+            .nombre-protagonista {
+                font-size: 1.2rem;
+                letter-spacing: 3px;
+            }
+            .nombre-protagonista.viajando {
+                animation: viajarEsquinaMovil 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+            }
+            .lista-esquina { width: 140px; right: 8px; top: 8px; padding: 6px 8px; max-height: 55vh; border-radius: 8px; opacity: 0.2; }
+            .lista-esquina:hover { opacity: 0.8; }
+            .lista-item { font-size: 0.45rem; padding: 2px 4px; letter-spacing: 0.3px; }
+            .lista-item .numero { font-size: 0.4rem; margin-right: 4px; }
+            .lista-titulo { font-size: 0.4rem; padding-bottom: 5px; margin-bottom: 5px; letter-spacing: 3px; }
+            .lista-vacia { font-size: 0.45rem; padding: 10px 0; }
+            .candidate-name { font-size: 0.85rem; letter-spacing: 2px; }
+            .candidate-slogan { font-size: 0.45rem; letter-spacing: 3px; }
+            .candidate-party { font-size: 0.4rem; letter-spacing: 4px; }
+            .badge-contador { font-size: 0.35rem; bottom: 75px; letter-spacing: 3px; }
+            .footer-content { padding: 6px 12px; border-radius: 10px; }
+            .footer-campaign { bottom: 20px; padding: 0 10px; }
+            
+            .nombre-protagonista.efecto-explosion,
+            .nombre-protagonista.efecto-meteorito,
+            .nombre-protagonista.efecto-corona,
+            .nombre-protagonista.efecto-supernova,
+            .nombre-protagonista.efecto-glitch,
+            .nombre-protagonista.efecto-portal,
+            .nombre-protagonista.efecto-bounce,
+            .nombre-protagonista.efecto-wave,
+            .nombre-protagonista.efecto-rayo,
+            .nombre-protagonista.efecto-espiral,
+            .nombre-protagonista.efecto-fuego,
+            .nombre-protagonista.efecto-relampago,
+            .nombre-protagonista.efecto-nebulosa {
+                animation-duration: 0.9s !important;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .nombre-protagonista { font-size: 1rem; letter-spacing: 2px; }
+            .lista-esquina { width: 120px; right: 5px; top: 5px; padding: 4px 6px; max-height: 50vh; }
+            .lista-item { font-size: 0.4rem; padding: 1px 3px; }
+            .candidate-name { font-size: 0.75rem; }
+            .candidate-slogan { font-size: 0.4rem; letter-spacing: 2px; }
+            .footer-content { padding: 4px 10px; }
+            .badge-contador { font-size: 0.3rem; bottom: 65px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="universo-campaign" id="universoCampaign">
+        <!-- ===== FONDO ===== -->
+        <div class="constelacion-fondo" id="constelacionFondo"></div>
+
+        <!-- ===== CAPA PRINCIPAL ===== -->
+        <div class="capa-principal">
+            <div id="nombreProtagonista" class="nombre-protagonista"></div>
+
+            <div class="lista-esquina" id="listaEsquina">
+                <div class="lista-titulo">✦ Muro de Honor</div>
+                <div id="contenedorLista">
+                    <div class="lista-vacia" id="mensajeVacio">✦ Esperando primeros apoyos ✦</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== FOOTER ===== -->
+        <div class="footer-campaign">
+            <div class="footer-content">
+                <div class="candidate-name">Fernando Clemente Arana</div>
+                <div class="candidate-slogan">Construyendo el futuro de Huancavelica Juntos</div>
+                <div class="candidate-party">✦ Acción Popular ✦</div>
+            </div>
+        </div>
+
+        <div class="badge-contador"><strong id="contadorApoyos">0</strong> apoyos registrados</div>
+    </div>
+
+    <script>
+        // =============================================
+        // CONFIGURACIÓN
+        // =============================================
+        const CONFIG = {
+            intervaloAgregar: 2800,
+            cantidadInicial: 8,
+            maxApoyos: 200,
+        };
+
+        // =============================================
+        // LISTA DE APOYOS (Formato correcto: solo inicial mayúscula)
+        // =============================================
+        const nombresBase = [
+            "María González", "Carlos Rodríguez", "Ana Martínez", "José Pérez",
+            "Laura Sánchez", "Miguel Fernández", "Elena García", "David López",
+            "Carmen Torres", "Javier Ruiz", "Isabel Castro", "Antonio Morales",
+            "Patricia Ortiz", "Francisco Jiménez", "Rosa Ramírez", "Manuel Díaz",
+            "Sandra Herrera", "Ramón Muñoz", "Mercedes Vega", "Raúl Navarro",
+            "Dolores Romero", "Pedro Salazar", "Alicia Guzmán", "Jorge Mendoza",
+            "Claudia Ríos", "Arturo Silva", "Martha Paredes", "Roberto Medina",
+            "Eva Cabrera", "Oscar Domínguez", "Dr. Juan Carlos Mena",
+            "Lic. Ana Sofía Reyes", "Ing. Miguel Ángel Paz", "Arq. Patricia Flores",
+            "Prof. Ramón Hernández", "Dra. Laura Méndez", "C.P. Jorge Navarro",
+            "Mtro. Carlos Jiménez", "Lic. Elena Vargas", "Dr. Roberto Castillo",
+            "Marco Antonio Quispe", "Rosa María Huamán", "José Luis Mamani",
+            "Ana María Condori", "Pedro Pablo Flores", "María Elena Vargas",
+            "Carlos Alberto Ruiz", "Laura Beatriz Gómez", "Miguel Ángel Díaz",
+            "Elena Rosa Castillo", "David Enrique Romero", "Carmen Julia Gutiérrez",
+            "Javier Ignacio Mendoza", "Isabel Cristina Herrera", "Antonio José Rivera",
+            "Patricia Alejandra Torres", "Francisco Javier Morales", "Rosa Elena Cruz",
+            "Manuel Alejandro Reyes", "Sandra Milena Gutiérrez", "Ramón Antonio Ortiz",
+            "Mercedes del Pilar Ríos", "Raúl Eduardo Silva", "Dolores Beatriz Paredes",
+            "Pedro Antonio Medina", "Alicia del Carmen Cabrera", "Jorge Luis Domínguez",
+            "Claudia Marcela Ríos", "Arturo Enrique Silva", "Martha Isabel Paredes",
+            "Roberto Carlos Medina", "Eva María Cabrera", "Oscar Alberto Domínguez"
+        ];
+
+        // =============================================
+        // 60+ COLORES VARIADOS
+        // =============================================
+        const colores = [
+            // ROJOS
+            "#ff0000", "#e60000", "#cc0000", "#ff1a1a", "#ff3333",
+            "#ff4d4d", "#ff6666", "#b30000", "#990000", "#800000",
+            "#ff8080", "#ff9999", "#ffb3b3", "#ffcccc",
+            
+            // BLANCOS Y GRISES
+            "#ffffff", "#f5f5f5", "#e8e8e8", "#fafafa", "#f0f0f0",
+            "#e6e6e6", "#d9d9d9", "#cccccc",
+            
+            // NEGROS Y GRISES OSCUROS
+            "#1a1a1a", "#2d2d2d", "#333333", "#404040", "#0d0d0d",
+            "#4d4d4d", "#595959", "#666666",
+            
+            // AZULES
+            "#0066ff", "#0044cc", "#003399", "#1a75ff", "#4d94ff",
+            "#80b3ff", "#b3d1ff", "#0055aa", "#0077ee", "#0088ff",
+            "#00aaff", "#33bbff", "#66ccff",
+            
+            // VERDES
+            "#00cc44", "#009933", "#006622", "#33cc66", "#66cc88",
+            "#88dd99", "#aaeeaa", "#00ff55", "#33ff77", "#66ff99",
+            
+            // AMARILLOS
+            "#ffcc00", "#e6b800", "#cca300", "#ffd633", "#ffdd66",
+            "#ffe699", "#ffcc33", "#ffd700", "#f0c000",
+            
+            // NARANJAS
+            "#ff6600", "#e65c00", "#cc5200", "#ff8533", "#ffaa66",
+            "#ffcc99", "#ff5500", "#ff7733", "#ff9955",
+            
+            // MORADOS
+            "#9900cc", "#7a00a3", "#660088", "#b300d9", "#cc44ff",
+            "#dd77ff", "#eeaaff", "#8b00ff", "#aa44ff", "#cc88ff",
+            
+            // ROSAS
+            "#ff00cc", "#e600b3", "#cc0099", "#ff33cc", "#ff66d9",
+            "#ff99e6", "#ff0066", "#ff3388", "#ff66aa",
+            
+            // CIANES
+            "#00cccc", "#009999", "#006666", "#33dddd", "#66eeee",
+            "#99f5f5", "#00ffcc", "#33ffdd", "#66ffee",
+            
+            // NEÓN
+            "#ff00ff", "#cc00ff", "#9900ff", "#ff00aa", "#ff44ff",
+            "#ff88ff", "#00ff00", "#33ff00", "#66ff33"
+        ];
+
+        // =============================================
+        // 41 TIPOGRAFÍAS
+        // =============================================
+        const tipografias = [
+            // SERIF
+            "'Playfair Display', serif", "'Cormorant Garamond', serif",
+            "'Georgia', serif", "'Times New Roman', serif",
+            "'Garamond', serif", "'Palatino Linotype', serif",
+            "'Baskerville', serif", "'Didot', serif",
+            "'Abril Fatface', serif", "'Goudy Bookletter 1911', serif",
+            
+            // SANS-SERIF
+            "'Inter', sans-serif", "'Space Grotesk', sans-serif",
+            "'Helvetica Neue', sans-serif", "'Arial', sans-serif",
+            "'Verdana', sans-serif", "'Trebuchet MS', sans-serif",
+            "'Segoe UI', sans-serif", "'Roboto', sans-serif",
+            "'Open Sans', sans-serif", "'Montserrat', sans-serif",
+            "'Raleway', sans-serif", "'Russo One', sans-serif",
+            
+            // GÓTICAS
+            "'UnifrakturMaguntia', serif", "'Old London', serif",
+            "'Cloister Black', serif", "'Texturina', serif",
+            "'MedievalSharp', cursive",
+            
+            // CURSIVAS
+            "'Great Vibes', cursive", "'Alex Brush', cursive",
+            "'Pacifico', cursive", "'Dancing Script', cursive",
+            "'Brush Script MT', cursive", "'Lobster', cursive",
+            "'Allura', cursive", "'Parisienne', cursive",
+            "'Bangers', cursive", "'Fredoka One', cursive",
+            
+            // DISPLAY
+            "'Orbitron', sans-serif", "'Press Start 2P', cursive",
+            "'Monoton', cursive",
+            
+            // MONOSPACE
+            "'Courier New', monospace", "'Fira Code', monospace",
+            "'Source Code Pro', monospace", "'Consolas', monospace",
+            "'Inconsolata', monospace"
+        ];
+
+        // =============================================
+        // 13 EFECTOS
+        // =============================================
+        const efectos = [
+            'efecto-explosion', 'efecto-meteorito', 'efecto-corona',
+            'efecto-supernova', 'efecto-glitch', 'efecto-portal',
+            'efecto-bounce', 'efecto-wave', 'efecto-rayo',
+            'efecto-espiral', 'efecto-fuego', 'efecto-relampago',
+            'efecto-nebulosa'
+        ];
+
+        // =============================================
+        // ESTADO
+        // =============================================
+        let totalMostrados = 0;
+        let estaOcupado = false;
+        let colaApoyos = [];
+        let nombreActual = null;
+        let primerApoyo = true;
+        let listaApoyos = [];
+        let indiceAleatorio = 0;
+
+        // =============================================
+        // FUNCIONES
+        // =============================================
+        function aleatorio(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        function formatearNumero(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        // =============================================
+        // GENERAR CONSTELACIÓN DE FONDO
+        // =============================================
+        function generarConstelacion() {
+            const contenedor = document.getElementById('constelacionFondo');
+            const cantidad = 80;
+            const nombresFondo = [];
+
+            for (let i = 0; i < cantidad; i++) {
+                const nombre = nombresBase[Math.floor(Math.random() * nombresBase.length)];
+                nombresFondo.push(nombre);
+            }
+
+            nombresFondo.forEach((nombre) => {
+                const span = document.createElement('span');
+                span.className = 'apoyo-fondo';
+                span.textContent = nombre;
+                const pos = { left: 5 + Math.random() * 90, top: 5 + Math.random() * 90 };
+                span.style.left = pos.left + '%';
+                span.style.top = pos.top + '%';
+                span.style.fontSize = (0.5 + Math.random() * 0.6) + 'rem';
+                span.style.animationDelay = (Math.random() * 30) + 's';
+                span.style.animationDuration = (20 + Math.random() * 40) + 's';
+                contenedor.appendChild(span);
+            });
+        }
+
+        // =============================================
+        // INICIALIZAR LISTA DE APOYOS
+        // =============================================
+        function inicializarListaApoyos() {
+            const mezclados = [...nombresBase];
+            for (let i = mezclados.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [mezclados[i], mezclados[j]] = [mezclados[j], mezclados[i]];
+            }
+            listaApoyos = mezclados;
+            indiceAleatorio = 0;
+        }
+
+        // =============================================
+        // AGREGAR A LA LISTA DE LA ESQUINA
+        // =============================================
+        function agregarALista(nombre, color) {
+            const contenedor = document.getElementById('contenedorLista');
+            const mensajeVacio = document.getElementById('mensajeVacio');
+            if (mensajeVacio) mensajeVacio.remove();
+
+            const numero = contenedor.children.length + 1;
+            const item = document.createElement('div');
+            item.className = 'lista-item';
+            item.innerHTML = `<span class="numero">#${String(numero).padStart(2, '0')}</span>${nombre}`;
+            item.style.color = color;
+
+            if (primerApoyo) {
+                item.style.color = color;
+                item.style.fontWeight = '400';
+                primerApoyo = false;
+            }
+
+            contenedor.appendChild(item);
+
+            const lista = document.getElementById('listaEsquina');
+            setTimeout(() => {
+                lista.scrollTo({ top: lista.scrollHeight, behavior: 'smooth' });
+            }, 150);
+
+            totalMostrados++;
+            document.getElementById('contadorApoyos').textContent = formatearNumero(totalMostrados);
+        }
+
+        // =============================================
+        // MOSTRAR PROTAGONISTA
+        // =============================================
+        function mostrarProtagonista(nombre, color, tipografia, efecto) {
+            const elemento = document.getElementById('nombreProtagonista');
+            elemento.textContent = nombre;
+            elemento.style.color = color;
+            elemento.style.textShadow = `0 0 40px ${color}, 0 0 80px ${color}, 0 0 120px ${color}`;
+            elemento.style.fontFamily = tipografia;
+            elemento.className = 'nombre-protagonista';
+            void elemento.offsetWidth;
+            elemento.classList.add(efecto);
+            nombreActual = elemento;
+
+            setTimeout(() => {
+                viajarAEsquina(nombre, color);
+            }, 2800);
+        }
+
+        // =============================================
+        // VIAJAR A LA ESQUINA
+        // =============================================
+        function viajarAEsquina(nombre, color) {
+            const elemento = document.getElementById('nombreProtagonista');
+            const clasesEfecto = ['efecto-explosion', 'efecto-meteorito', 'efecto-corona',
+                'efecto-supernova', 'efecto-glitch', 'efecto-portal',
+                'efecto-bounce', 'efecto-wave', 'efecto-rayo',
+                'efecto-espiral', 'efecto-fuego', 'efecto-relampago', 'efecto-nebulosa'
+            ];
+            clasesEfecto.forEach(cl => elemento.classList.remove(cl));
+            elemento.classList.add('viajando');
+
+            setTimeout(() => {
+                agregarALista(nombre, color);
+                elemento.classList.remove('viajando');
+                elemento.style.opacity = '0';
+                elemento.textContent = '';
+                elemento.className = 'nombre-protagonista';
+                nombreActual = null;
+                estaOcupado = false;
+                procesarCola();
+            }, 900);
+        }
+
+        // =============================================
+        // COLA DE APOYOS
+        // =============================================
+        function procesarCola() {
+            if (estaOcupado || colaApoyos.length === 0) return;
+            estaOcupado = true;
+            const apoyo = colaApoyos.shift();
+            mostrarProtagonista(apoyo.nombre, apoyo.color, apoyo.tipografia, apoyo.efecto);
+        }
+
+        function encolarApoyo(nombre, color, tipografia, efecto) {
+            colaApoyos.push({ nombre, color, tipografia, efecto });
+            if (!estaOcupado) procesarCola();
+        }
+
+        // =============================================
+        // AGREGAR NUEVO APOYO
+        // =============================================
+        function agregarNuevoApoyo() {
+            if (totalMostrados >= CONFIG.maxApoyos) return;
+
+            const nombre = listaApoyos[indiceAleatorio % listaApoyos.length];
+            indiceAleatorio++;
+
+            const color = aleatorio(colores);
+            const tipografia = aleatorio(tipografias);
+            const efecto = aleatorio(efectos);
+
+            encolarApoyo(nombre, color, tipografia, efecto);
+        }
+
+        // =============================================
+        // INICIALIZAR MURO
+        // =============================================
+        function inicializarMuro() {
+            inicializarListaApoyos();
+
+            let index = 0;
+            const cantidadInicial = Math.min(CONFIG.cantidadInicial, listaApoyos.length);
+
+            function mostrarSiguienteInicial() {
+                if (index < cantidadInicial) {
+                    const nombre = listaApoyos[index];
+                    const color = aleatorio(colores);
+                    const tipografia = aleatorio(tipografias);
+                    const efecto = (index === 0) ? 'efecto-supernova' : aleatorio(efectos);
+
+                    encolarApoyo(nombre, color, tipografia, efecto);
+                    index++;
+                    setTimeout(mostrarSiguienteInicial, CONFIG.intervaloAgregar);
+                } else {
+                    let indexResto = cantidadInicial;
+                    function mostrarSiguienteResto() {
+                        if (indexResto < listaApoyos.length && totalMostrados < CONFIG.maxApoyos) {
+                            const nombre = listaApoyos[indexResto];
+                            const color = aleatorio(colores);
+                            const tipografia = aleatorio(tipografias);
+                            const efecto = aleatorio(efectos);
+
+                            encolarApoyo(nombre, color, tipografia, efecto);
+                            indexResto++;
+
+                            const delay = CONFIG.intervaloAgregar + (Math.random() * 1500 - 750);
+                            setTimeout(mostrarSiguienteResto, delay);
+                        } else {
+                            indiceAleatorio = 0;
+                            inicializarListaApoyos();
+                            setTimeout(mostrarSiguienteResto, CONFIG.intervaloAgregar);
+                        }
+                    }
+                    setTimeout(mostrarSiguienteResto, 1000);
+                }
+            }
+
+            setTimeout(mostrarSiguienteInicial, 800);
+        }
+
+        // =============================================
+        // INICIALIZAR
+        // =============================================
+        window.addEventListener('load', () => {
+            generarConstelacion();
+            setTimeout(() => {
+                inicializarMuro();
+            }, 500);
+        });
+    </script>
+</body>
+</html>
