@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Propuestas | Fernando Clemente Arana - Acción Popular</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="img/fca_simbolo.jpeg" />
+
+    <style>
+        .page-hero {
+            padding: 160px 0 80px;
+            background: var(--color-black);
+            color: var(--color-white);
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -15%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(200, 16, 46, 0.10) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .page-hero__inner {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .page-hero h1 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 4rem;
+            line-height: 1.05;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        .page-hero h1 span {
+            color: var(--color-red);
+            font-style: italic;
+        }
+        .page-hero p {
+            font-size: 1.15rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.9;
+        }
+
+        .ejes {
+            padding: 100px 0;
+            background: var(--color-white);
+        }
+        .ejes__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .eje-card {
+            background: var(--color-off-white);
+            padding: 40px 32px;
+            border-radius: var(--radius-md);
+            transition: var(--transition-elastic);
+            border: 1px solid var(--color-gray);
+            position: relative;
+            overflow: hidden;
+        }
+        .eje-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--color-red);
+            transform: scaleX(0);
+            transition: var(--transition-smooth);
+        }
+        .eje-card:hover::before { transform: scaleX(1); }
+        .eje-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-red);
+        }
+        .eje-card .icon {
+            width: 64px;
+            height: 64px;
+            background: var(--color-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            color: var(--color-white);
+            margin-bottom: 20px;
+            transition: var(--transition-elastic);
+        }
+        .eje-card:hover .icon {
+            transform: scale(1.08) rotate(-4deg);
+        }
+        .eje-card h3 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: var(--color-text);
+        }
+        .eje-card p {
+            color: var(--color-gray-dark);
+            font-size: 0.92rem;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        .eje-card ul {
+            margin-top: 16px;
+            padding-left: 0;
+        }
+        .eje-card ul li {
+            color: var(--color-gray-dark);
+            font-size: 0.88rem;
+            font-weight: 300;
+            padding: 6px 0;
+            padding-left: 24px;
+            position: relative;
+            line-height: 1.6;
+        }
+        .eje-card ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--color-red);
+            font-weight: 700;
+        }
+
+        .plan-gobierno {
+            padding: 100px 0;
+            background: var(--color-off-white);
+        }
+        .plan-gobierno__inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .plan-gobierno__content .section-title {
+            font-size: 3rem;
+        }
+        .plan-gobierno__content p {
+            color: var(--color-gray-dark);
+            font-size: 1.02rem;
+            font-weight: 300;
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+        .plan-gobierno__stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 30px;
+        }
+        .plan-gobierno__stats .stat-item {
+            background: var(--color-white);
+            padding: 20px;
+            border-radius: var(--radius-sm);
+            text-align: center;
+            border: 1px solid var(--color-gray);
+            transition: var(--transition-smooth);
+        }
+        .plan-gobierno__stats .stat-item:hover {
+            border-color: var(--color-red);
+            transform: translateY(-3px);
+        }
+        .plan-gobierno__stats .stat-item .number {
+            font-family: var(--font-stats);
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--color-red);
+            display: block;
+        }
+        .plan-gobierno__stats .stat-item .label {
+            font-size: 0.8rem;
+            color: var(--color-gray-dark);
+            font-weight: 500;
+        }
+        .plan-gobierno__image img {
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            width: 100%;
+        }
+
+        .compromisos {
+            padding: 100px 0;
+            background: var(--color-black);
+            color: var(--color-white);
+            position: relative;
+            overflow: hidden;
+        }
+        .compromisos::before {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(200, 16, 46, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .compromisos__inner {
+            position: relative;
+            z-index: 1;
+        }
+        .compromisos__grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .compromiso-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 20px 24px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: var(--transition-smooth);
+        }
+        .compromiso-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: var(--color-red);
+            transform: translateX(4px);
+        }
+        .compromiso-item .num {
+            font-family: var(--font-stats);
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--color-red);
+            min-width: 40px;
+            line-height: 1;
+        }
+        .compromiso-item p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        @media (max-width: 1024px) {
+            .ejes__grid { grid-template-columns: repeat(2, 1fr); }
+            .plan-gobierno__inner { grid-template-columns: 1fr; gap: 40px; }
+            .compromisos__grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .page-hero { padding: 130px 0 60px; }
+            .page-hero h1 { font-size: 2.8rem; }
+            .ejes__grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+            .plan-gobierno__stats { grid-template-columns: 1fr 1fr; }
+            .plan-gobierno__content .section-title { font-size: 2.4rem; }
+        }
+        @media (max-width: 480px) {
+            .page-hero h1 { font-size: 2.2rem; }
+            .plan-gobierno__stats { grid-template-columns: 1fr; }
+            .compromiso-item { padding: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER Y FOOTER se cargan desde components/ -->
+
+    <!-- ===== HERO ===== -->
+    <section class="page-hero">
+        <div class="container page-hero__inner animate-on-scroll">
+            <span class="section-tag section-tag-white">Plan de Gobierno</span>
+            <h1>Propuestas para <span>Huancavelica</span></h1>
+            <p>Un plan integral de desarrollo con propuestas concretas para transformar nuestra provincia. Compromisos claros, acciones medibles y resultados tangibles.</p>
+        </div>
+    </section>
+
+    <!-- ===== EJES ===== -->
+    <section class="ejes" id="ejes">
+        <div class="container">
+            <div class="text-center animate-on-scroll">
+                <span class="section-tag">Ejes de Gobierno</span>
+                <h2 class="section-title">Nuestros <span>ejes</span> de transformación</h2>
+                <p class="section-subtitle mx-auto">Seis pilares fundamentales para el desarrollo integral de Huancavelica</p>
+            </div>
+            <div class="ejes__grid">
+                <div class="eje-card animate-on-scroll">
+                    <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Seguridad Ciudadana</h3>
+                    <p>Plan integral para recuperar la tranquilidad de las familias huancavelicanas.</p>
+                    <ul>
+                        <li>Implementación de 50 cámaras de vigilancia en puntos estratégicos</li>
+                        <li>Creación de la Unidad de Respuesta Rápida con 30 nuevos efectivos</li>
+                        <li>Programa "Barrio Seguro" en los 12 distritos de la provincia</li>
+                    </ul>
+                </div>
+                <div class="eje-card animate-on-scroll delay-1">
+                    <div class="icon"><i class="fas fa-heartbeat"></i></div>
+                    <h3>Salud para Todos</h3>
+                    <p>Garantizar el acceso universal a servicios de salud de calidad en toda la provincia.</p>
+                    <ul>
+                        <li>Modernización del Hospital Regional de Huancavelica</li>
+                        <li>Construcción de 5 centros de salud en distritos alejados</li>
+                        <li>Programa de telemedicina para zonas de difícil acceso</li>
+                    </ul>
+                </div>
+                <div class="eje-card animate-on-scroll delay-2">
+                    <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Educación de Calidad</h3>
+                    <p>Fortalecer el sistema educativo con inversión en infraestructura y tecnología.</p>
+                    <ul>
+                        <li>Construcción de 3 colegios emblemáticos en la provincia</li>
+                        <li>Becas para 500 jóvenes huancavelicanos</li>
+                        <li>Programa de inglés y tecnología en todas las instituciones</li>
+                    </ul>
+                </div>
+                <div class="eje-card animate-on-scroll">
+                    <div class="icon"><i class="fas fa-road"></i></div>
+                    <h3>Infraestructura y Desarrollo</h3>
+                    <p>Obras que conectan Huancavelica y generan desarrollo regional.</p>
+                    <ul>
+                        <li>Asfaltado de 50 km de vías provinciales</li>
+                        <li>Puente vehicular en el río Ichu</li>
+                        <li>Plan de agua potable para 8 distritos</li>
+                    </ul>
+                </div>
+                <div class="eje-card animate-on-scroll delay-1">
+                    <div class="icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Desarrollo Económico</h3>
+                    <p>Impulsar la economía local y generar empleo para los huancavelicanos.</p>
+                    <ul>
+                        <li>Fondo de emprendimiento para jóvenes de S/ 2 millones</li>
+                        <li>Feria agroindustrial en los 12 distritos</li>
+                        <li>Impulso a la minería artesanal formalizada</li>
+                    </ul>
+                </div>
+                <div class="eje-card animate-on-scroll delay-2">
+                    <div class="icon"><i class="fas fa-gavel"></i></div>
+                    <h3>Lucha Anticorrupción</h3>
+                    <p>Gobierno transparente con cero tolerancia a la corrupción.</p>
+                    <ul>
+                        <li>Portal de transparencia con información en tiempo real</li>
+                        <li>Auditorías ciudadanas participativas</li>
+                        <li>Comité de vigilancia ciudadana</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PLAN DE GOBIERNO ===== -->
+    <section class="plan-gobierno" id="plan">
+        <div class="container plan-gobierno__inner">
+            <div class="plan-gobierno__content animate-on-scroll">
+                <span class="section-tag">Plan de Gobierno</span>
+                <h2 class="section-title">Huancavelica <span>2030</span></h2>
+                <p>Un plan de desarrollo integral con visión de largo plazo que busca transformar Huancavelica en una provincia próspera, segura y con oportunidades para todos.</p>
+                <p>Nuestro plan se basa en 5 pilares estratégicos que guiarán todas nuestras acciones durante los próximos 4 años de gestión.</p>
+                <div class="plan-gobierno__stats">
+                    <div class="stat-item"><span class="number">S/ 50M</span><span class="label">Inversión proyectada</span></div>
+                    <div class="stat-item"><span class="number">12</span><span class="label">Distritos intervenidos</span></div>
+                    <div class="stat-item"><span class="number">50+</span><span class="label">Proyectos priorizados</span></div>
+                    <div class="stat-item"><span class="number">5K</span><span class="label">Nuevos empleos</span></div>
+                </div>
+                <div style="margin-top: 30px;">
+                    <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                        <i class="fas fa-file-pdf"></i> Descargar Plan de Gobierno (PDF)
+                    </a>
+                </div>
+            </div>
+            <div class="plan-gobierno__image animate-on-scroll delay-1">
+                <img src="img/fca_hvca.jpeg" alt="Plan de Gobierno Huancavelica 2030" />
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== COMPROMISOS ===== -->
+    <section class="compromisos" id="compromisos">
+        <div class="container compromisos__inner">
+            <div class="text-center animate-on-scroll">
+                <span class="section-tag section-tag-white">Mis Compromisos</span>
+                <h2 class="section-title section-title-white">10 <span>compromisos</span> con Huancavelica</h2>
+                <p style="color: rgba(255,255,255,0.6); max-width: 600px; margin: 0 auto; font-size: 1.05rem; font-weight: 300; line-height: 1.9;">Compromisos concretos que asumo con cada huancavelicano</p>
+            </div>
+            <div class="compromisos__grid">
+                <div class="compromiso-item animate-on-scroll"><span class="num">01</span><p>Reducir la delincuencia en un 40% durante el primer año de gestión</p></div>
+                <div class="compromiso-item animate-on-scroll delay-1"><span class="num">02</span><p>Construir 3 nuevos centros de salud y modernizar el Hospital Regional</p></div>
+                <div class="compromiso-item animate-on-scroll delay-2"><span class="num">03</span><p>Garantizar internet de alta velocidad en todas las instituciones educativas</p></div>
+                <div class="compromiso-item animate-on-scroll delay-3"><span class="num">04</span><p>Asfaltar todas las vías de acceso a los 12 distritos de la provincia</p></div>
+                <div class="compromiso-item animate-on-scroll"><span class="num">05</span><p>Crear 5,000 nuevos empleos a través de obras y emprendimientos locales</p></div>
+                <div class="compromiso-item animate-on-scroll delay-1"><span class="num">06</span><p>Implementar el portal de transparencia con información en tiempo real</p></div>
+                <div class="compromiso-item animate-on-scroll delay-2"><span class="num">07</span><p>Asegurar agua potable para el 100% de la población al 2030</p></div>
+                <div class="compromiso-item animate-on-scroll delay-3"><span class="num">08</span><p>Impulsar el turismo con la Ruta del Cóndor y el Camino Inca</p></div>
+                <div class="compromiso-item animate-on-scroll"><span class="num">09</span><p>Crear el Fondo de Emprendimiento Juvenil con S/ 2 millones</p></div>
+                <div class="compromiso-item animate-on-scroll delay-1"><span class="num">10</span><p>Realizar auditorías ciudadanas participativas cada trimestre</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SÚMATE ===== -->
+    <section class="sumate" id="sumate" style="padding: 80px 0;">
+        <div class="container sumate__inner">
+            <div class="sumate__content animate-on-scroll">
+                <span class="section-tag">Súmate</span>
+                <h2 class="section-title">Sé parte del <span>cambio</span></h2>
+                <p>Únete a miles de huancavelicanos que ya están construyendo el futuro de la provincia. Tu voz, tu energía y tu compromiso son fundamentales para transformar Huancavelica.</p>
+                <div class="features">
+                    <span><i class="fas fa-check-circle"></i> Participa activamente</span>
+                    <span><i class="fas fa-check-circle"></i> Recibe información</span>
+                </div>
+            </div>
+            <!-- FORMULARIO GLOBAL -->
+            <div class="sumate__form-container"></div>
+        </div>
+    </section>
+
+    <!-- ===== JS ===== -->
+    <script src="js/main.js"></script>
+
+</body>
+</html>
