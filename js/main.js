@@ -1,153 +1,119 @@
 // ============================================================
-// MAIN.JS - FUNCIONALIDADES PRINCIPALES
+// HEADER SCROLL
 // ============================================================
+const header = document.getElementById('header');
+let lastScroll = 0;
 
-document.addEventListener('DOMContentLoaded', function() {
-
-    // ============================================================
-    // 1. ANIMACIÓN DE CONTADORES (STATS)
-    // ============================================================
-    function animateCounters() {
-        const counters = document.querySelectorAll('.counter');
-        const speed = 200;
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const target = parseInt(entry.target.getAttribute('data-target'));
-                    const increment = target / speed;
-                    let current = 0;
-
-                    const updateCounter = () => {
-                        current += increment;
-                        if (current < target) {
-                            entry.target.textContent = Math.ceil(current);
-                            requestAnimationFrame(updateCounter);
-                        } else {
-                            entry.target.textContent = target;
-                        }
-                    };
-                    updateCounter();
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        counters.forEach(counter => observer.observe(counter));
+window.addEventListener('scroll', function () {
+    const currentScroll = window.scrollY;
+    if (currentScroll > 50) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
     }
+    lastScroll = currentScroll;
+});
 
-    animateCounters();
+// ============================================================
+// HAMBURGUESA
+// ============================================================
+const hamburger = document.getElementById('hamburger');
+const mainMenu = document.getElementById('mainMenu');
 
-    // ============================================================
-    // 2. ANIMACIÓN DE ELEMENTOS AL HACER SCROLL
-    // ============================================================
-    function animateOnScroll() {
-        const elements = document.querySelectorAll('.animate-on-scroll');
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.15,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        elements.forEach(element => observer.observe(element));
-    }
-
-    animateOnScroll();
-
-    // ============================================================
-    // 3. FORMULARIO DE SÚMATE (VALIDACIÓN)
-    // ============================================================
-    const form = document.getElementById('formSumate');
-    const formMessage = document.getElementById('formMessage');
-
-    if (form) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const nombre = document.getElementById('nombre').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const telefono = document.getElementById('telefono').value.trim();
-
-            // Validación básica
-            if (!nombre || !email || !telefono) {
-                formMessage.innerHTML = `
-                    <div style="color: #C8102E; padding: 12px; background: #FFE5E5; border-radius: 8px;">
-                        <i class="fas fa-exclamation-circle"></i> 
-                        Por favor, completa todos los campos obligatorios.
-                    </div>
-                `;
-                return;
-            }
-
-            // Validación de email
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                formMessage.innerHTML = `
-                    <div style="color: #C8102E; padding: 12px; background: #FFE5E5; border-radius: 8px;">
-                        <i class="fas fa-exclamation-circle"></i> 
-                        Por favor, ingresa un correo electrónico válido.
-                    </div>
-                `;
-                return;
-            }
-
-            // Validación de teléfono (solo números)
-            const phoneRegex = /^\d{9}$/;
-            if (!phoneRegex.test(telefono)) {
-                formMessage.innerHTML = `
-                    <div style="color: #C8102E; padding: 12px; background: #FFE5E5; border-radius: 8px;">
-                        <i class="fas fa-exclamation-circle"></i> 
-                        Por favor, ingresa un número telefónico válido (9 dígitos).
-                    </div>
-                `;
-                return;
-            }
-
-            // Simulación de envío exitoso
-            formMessage.innerHTML = `
-                <div style="color: #28A745; padding: 12px; background: #E6F9E6; border-radius: 8px;">
-                    <i class="fas fa-check-circle"></i> 
-                    ¡Gracias por sumarte al cambio! Pronto recibirás más información.
-                </div>
-            `;
-
-            // Resetear el formulario después de 3 segundos
-            setTimeout(() => {
-                form.reset();
-            }, 3000);
-        });
-    }
-
-    // ============================================================
-    // 4. SMOOTH SCROLL PARA ENLACES INTERNOS
-    // ============================================================
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            
-            // Ignorar si es un enlace vacío o solo "#"
-            if (href === '#' || href === '') return;
-
-            const target = document.querySelector(href);
-            if (target) {
-                e.preventDefault();
-                const headerOffset = 80;
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
+if (hamburger && mainMenu) {
+    hamburger.addEventListener('click', function () {
+        this.classList.toggle('active');
+        mainMenu.classList.toggle('open');
     });
 
+    document.querySelectorAll('.header__menu a').forEach(link => {
+        link.addEventListener('click', function () {
+            hamburger.classList.remove('active');
+            mainMenu.classList.remove('open');
+        });
+    });
+}
+
+// ============================================================
+// SCROLL ANIMATION
+// ============================================================
+const animateElements = document.querySelectorAll('.animate-on-scroll');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, {
+    threshold: 0.08,
+    rootMargin: '0px 0px -30px 0px'
+});
+
+animateElements.forEach(el => observer.observe(el));
+
+// ============================================================
+// COUNTER ANIMATION
+// ============================================================
+const counters = document.querySelectorAll('.counter');
+
+const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const target = parseInt(entry.target.getAttribute('data-target'));
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    entry.target.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    entry.target.textContent = Math.floor(current);
+                }
+            }, 25);
+            counterObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.3 });
+
+counters.forEach(counter => counterObserver.observe(counter));
+
+// ============================================================
+// FORMULARIO
+// ============================================================
+const form = document.getElementById('formSumate');
+const message = document.getElementById('formMessage');
+
+if (form && message) {
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        message.style.color = '#C8102E';
+        message.textContent = '✅ ¡Gracias por sumarte! Pronto recibirás más información.';
+
+        form.reset();
+
+        setTimeout(() => {
+            message.textContent = '';
+        }, 5000);
+    });
+}
+
+// ============================================================
+// SMOOTH SCROLL
+// ============================================================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
 });
