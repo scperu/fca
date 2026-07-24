@@ -8,6 +8,7 @@
 class FcaHeader extends HTMLElement {
     constructor() {
         super();
+        // Usamos Shadow DOM para encapsulamiento
         this.attachShadow({ mode: 'open' });
     }
 
@@ -19,6 +20,7 @@ class FcaHeader extends HTMLElement {
     render() {
         this.shadowRoot.innerHTML = `
             <style>
+                /* Estilos encapsulados para el header */
                 :host {
                     display: block;
                     position: fixed;
@@ -191,6 +193,7 @@ class FcaHeader extends HTMLElement {
                     transform: rotate(-45deg) translate(5px, -5px);
                 }
 
+                /* Responsive */
                 @media (max-width: 768px) {
                     .header__brand img {
                         width: 30px;
@@ -280,6 +283,7 @@ class FcaHeader extends HTMLElement {
         const hamburger = this.shadowRoot.getElementById('hamburger');
         const mainMenu = this.shadowRoot.getElementById('mainMenu');
 
+        // Scroll behavior
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 host.classList.add('scrolled');
@@ -288,11 +292,13 @@ class FcaHeader extends HTMLElement {
             }
         }, { passive: true });
 
+        // Hamburger menu
         hamburger?.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             mainMenu?.classList.toggle('open');
         });
 
+        // Cerrar menú al hacer clic en un enlace
         this.shadowRoot.querySelectorAll('.header__menu a').forEach(link => {
             link.addEventListener('click', () => {
                 hamburger?.classList.remove('active');
@@ -331,7 +337,7 @@ class FcaHero extends HTMLElement {
                             <a href="#sumate" class="btn btn-white">
                                 <i class="fas fa-handshake"></i> Súmate
                             </a>
-                            <a href="pages/conoceme.html" class="btn btn-ghost">
+                            <a href="conoceme.html" class="btn btn-ghost">
                                 <i class="fas fa-play-circle"></i> Conóceme
                             </a>
                         </div>
@@ -510,7 +516,7 @@ class FcaConoceme extends HTMLElement {
                                 </span>
                             </div>
 
-                            <a href="pages/conoceme.html" style="display: inline-flex; align-items: center; background: #C8102E; color: #fff; padding: 11px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s; box-shadow: 0 8px 25px rgba(200, 16, 46, 0.3);">
+                            <a href="conoceme.html" style="display: inline-flex; align-items: center; background: #C8102E; color: #fff; padding: 11px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s; box-shadow: 0 8px 25px rgba(200, 16, 46, 0.3);">
                                 <i class="fas fa-chevron-right" style="margin-right: 10px;"></i>
                                 Conoce más de mi trayectoria
                             </a>
