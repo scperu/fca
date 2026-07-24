@@ -19,39 +19,8 @@
 <body>
 
     <!-- ============================================================
-    HEADER
+    HEADER y FOOTER se cargan automáticamente desde components/
     ============================================================ -->
-    <header class="header" id="header">
-        <div class="container header__inner">
-            <div class="header__brand">
-                <img src="img/fca_simbolo.jpeg" alt="Acción Popular" />
-                <span class="header__brand-text">
-                    Fernando Clemente <span>Arana</span>
-                </span>
-            </div>
-
-            <nav class="header__nav">
-                <ul class="header__menu" id="mainMenu">
-                    <li><a href="index.html" class="active">Inicio</a></li>
-                    <li><a href="conoceme.html">Conóceme</a></li>
-                    <li><a href="#pilares">Propuestas</a></li>
-                    <li><a href="#huancavelica">Huancavelica</a></li>
-                    <li><a href="#noticias">Noticias</a></li>
-                    <li>
-                        <a href="#sumate" class="btn-sumate">
-                            <i class="fas fa-handshake"></i> Súmate
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-
-            <button class="header__hamburger" id="hamburger" aria-label="Menú">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </header>
 
     <!-- ============================================================
     HERO
@@ -75,7 +44,7 @@
                     Candidato a la Provincia de Huancavelica
                 </div>
                 <div class="hero__buttons">
-                    <a href="#sumate" class="btn btn-white">
+                    <a href="sumate.html" class="btn btn-white">
                         <i class="fas fa-handshake"></i> Súmate
                     </a>
                     <a href="conoceme.html" class="btn btn-ghost">
@@ -237,7 +206,7 @@
                         <span class="noticias__date"><i class="far fa-calendar-alt" style="margin-right: 6px;"></i> 18 de julio, 2026</span>
                         <h3>Fernando Arana presenta su plan de gobierno</h3>
                         <p>El candidato de Acción Popular anunció sus principales propuestas para Huancavelica.</p>
-                        <a href="#" class="noticias__link">
+                        <a href="noticias.html" class="noticias__link">
                             Leer más <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -251,7 +220,7 @@
                         <span class="noticias__date"><i class="far fa-calendar-alt" style="margin-right: 6px;"></i> 15 de julio, 2026</span>
                         <h3>Más de 5 mil voluntarios se suman a la campaña</h3>
                         <p>El movimiento ciudadano crece en Huancavelica con jóvenes comprometidos con el cambio.</p>
-                        <a href="#" class="noticias__link">
+                        <a href="noticias.html" class="noticias__link">
                             Leer más <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -265,11 +234,16 @@
                         <span class="noticias__date"><i class="far fa-calendar-alt" style="margin-right: 6px;"></i> 12 de julio, 2026</span>
                         <h3>Propuesta de infraestructura para Huancavelica</h3>
                         <p>Expertos avalan el plan de desarrollo integral presentado por el candidato.</p>
-                        <a href="#" class="noticias__link">
+                        <a href="noticias.html" class="noticias__link">
                             Leer más <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </article>
+            </div>
+            <div class="text-center" style="margin-top: 40px;">
+                <a href="noticias.html" class="btn btn-primary">
+                    <i class="fas fa-newspaper"></i> Ver todas las noticias
+                </a>
             </div>
         </div>
     </section>
@@ -314,55 +288,14 @@
                     </button>
                 </form>
                 <div id="formMessage" style="margin-top: 16px; text-align: center; font-weight: 400;"></div>
+                <div style="text-align: center; margin-top: 16px;">
+                    <a href="sumate.html" class="btn btn-outline" style="width: 100%; justify-content: center;">
+                        <i class="fas fa-arrow-right"></i> Ver más formas de apoyar
+                    </a>
+                </div>
             </div>
         </div>
     </section>
-
-    <!-- ============================================================
-    FOOTER
-    ============================================================ -->
-    <footer class="footer">
-        <div class="container footer__inner">
-            <div class="footer__col">
-                <img src="img/fca_simbolo.jpeg" alt="Acción Popular" class="footer__logo" />
-                <p class="footer__slogan">Por el desarrollo de Huancavelica</p>
-            </div>
-            <div class="footer__col">
-                <h4>Enlaces</h4>
-                <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="conoceme.html">Conóceme</a></li>
-                    <li><a href="#pilares">Propuestas</a></li>
-                    <li><a href="#huancavelica">Huancavelica</a></li>
-                    <li><a href="#sumate">Súmate</a></li>
-                </ul>
-            </div>
-            <div class="footer__col">
-                <h4>Redes Sociales</h4>
-                <div class="footer__social">
-                    <a href="https://facebook.com/fclementearana" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://twitter.com/fclementearana" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="https://youtube.com/@fclementearana" target="_blank"><i class="fab fa-youtube"></i></a>
-                    <a href="https://tiktok.com/@fclementearana" target="_blank"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://instagram.com/fclementearana" target="_blank"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-            <div class="footer__col">
-                <h4>Contacto</h4>
-                <p style="color: rgba(255,255,255,0.4); font-size: 0.9rem; font-weight: 300;">
-                    <i class="fas fa-envelope" style="margin-right: 8px;"></i> fclementearana@gmail.com
-                </p>
-                <a href="#sumate" class="btn btn-footer">
-                    ÚNETE AQUÍ
-                </a>
-            </div>
-        </div>
-        <div class="footer__bottom">
-            <div class="container">
-                <p>© 2026 Fernando Clemente Arana - Acción Popular. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
 
     <!-- ============================================================
     JAVASCRIPT EXTERNO
