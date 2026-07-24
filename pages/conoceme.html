@@ -22,19 +22,21 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-    <!-- CSS -->
+    <!-- CSS - RUTA CORREGIDA -->
     <link rel="stylesheet" href="../css/styles.css" />
 
     <style>
-        /* Estilos específicos para la página Conóceme */
+        /* ============================================================
+           ESTILOS ESPECÍFICOS PARA CONÓCEME
+           ============================================================ */
         .conoceme-page {
-            padding-top: 120px;
+            padding-top: 0;
             background: var(--color-white);
         }
 
         .conoceme-page .hero-conoceme {
             background: linear-gradient(135deg, var(--color-black) 0%, var(--color-black-light) 100%);
-            padding: 60px 0 80px;
+            padding: 140px 0 80px;
             position: relative;
             overflow: hidden;
         }
@@ -47,6 +49,18 @@
             width: 600px;
             height: 600px;
             background: radial-gradient(circle, rgba(200, 16, 46, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .conoceme-page .hero-conoceme::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
         }
@@ -73,7 +87,53 @@
             margin: 16px auto 0;
         }
 
-        /* Tarjetas de contenido */
+        /* BIOGRAFÍA */
+        .bio-section {
+            background: var(--color-off-white);
+            padding: 80px 0;
+            border-bottom: 1px solid var(--color-gray);
+        }
+
+        .bio-section .bio-content {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .bio-section .bio-content .bio-text {
+            font-size: 1.1rem;
+            color: var(--color-gray-dark);
+            line-height: 2;
+            font-weight: 300;
+        }
+
+        .bio-section .bio-content .bio-text p {
+            margin-bottom: 20px;
+        }
+
+        .bio-section .bio-content .bio-text strong {
+            color: var(--color-red);
+            font-weight: 600;
+        }
+
+        .bio-section .bio-content .bio-text .highlight-gold {
+            color: var(--color-gold);
+            font-weight: 600;
+        }
+
+        .bio-section .signature {
+            margin-top: 32px;
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--color-red);
+            font-style: italic;
+            text-align: right;
+            border-top: 3px solid var(--color-red);
+            padding-top: 24px;
+            max-width: 400px;
+            margin-left: auto;
+        }
+
+        /* TARJETAS */
         .conoceme-content {
             padding: 80px 0;
         }
@@ -81,7 +141,7 @@
         .conoceme-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 30px;
             max-width: 1100px;
             margin: 0 auto;
         }
@@ -139,61 +199,17 @@
             font-weight: 300;
         }
 
-        .conoceme-card .highlight {
-            color: var(--color-red);
-            font-weight: 500;
-        }
-
-        /* Sección de biografía extendida */
-        .bio-section {
-            background: var(--color-off-white);
-            padding: 80px 0;
-            border-top: 1px solid var(--color-gray);
-        }
-
-        .bio-section .bio-content {
-            max-width: 850px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .bio-section .bio-content .bio-text {
-            font-size: 1.1rem;
-            color: var(--color-gray-dark);
-            line-height: 2;
-            font-weight: 300;
-            text-align: left;
-        }
-
-        .bio-section .bio-content .bio-text strong {
-            color: var(--color-red);
+        .conoceme-card p strong {
+            color: var(--color-black);
             font-weight: 600;
         }
 
-        .bio-section .bio-content .bio-text .highlight-gold {
-            color: var(--color-gold);
-            font-weight: 600;
-        }
-
-        .bio-section .signature {
-            margin-top: 32px;
-            font-family: var(--font-display);
-            font-size: 1.8rem;
-            color: var(--color-red);
-            font-style: italic;
-            text-align: right;
-            border-top: 2px solid var(--color-red);
-            padding-top: 24px;
-            max-width: 400px;
-            margin-left: auto;
-        }
-
-        /* Cita destacada */
+        /* CITA */
         .quote-block {
             background: var(--color-black);
             padding: 50px 60px;
             border-radius: var(--radius-lg);
-            margin: 40px auto;
+            margin: 0 auto 60px;
             max-width: 850px;
             position: relative;
         }
@@ -228,23 +244,36 @@
             font-size: 1rem;
         }
 
-        /* Responsive */
+        /* CTA */
+        .cta-section {
+            padding: 60px 0 80px;
+            background: var(--color-off-white);
+        }
+
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
         @media (max-width: 768px) {
+            .conoceme-page .hero-conoceme {
+                padding: 120px 0 60px;
+            }
+
             .conoceme-page .hero-conoceme .section-title {
                 font-size: 2.6rem;
             }
 
             .conoceme-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 20px;
             }
 
             .conoceme-card {
-                padding: 30px;
+                padding: 28px;
             }
 
             .quote-block {
                 padding: 30px 24px;
+                margin: 0 16px 40px;
             }
 
             .quote-block blockquote {
@@ -253,12 +282,14 @@
 
             .bio-section .bio-content .bio-text {
                 font-size: 1rem;
+                padding: 0 16px;
             }
 
             .bio-section .signature {
                 font-size: 1.4rem;
                 text-align: center;
                 margin: 24px auto 0;
+                max-width: 100%;
             }
         }
 
@@ -272,11 +303,19 @@
             }
 
             .conoceme-card {
-                padding: 24px;
+                padding: 20px;
             }
 
             .conoceme-card h3 {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
+            }
+
+            .conoceme-card .card-icon {
+                font-size: 2.2rem;
+            }
+
+            .quote-block blockquote {
+                font-size: 1rem;
             }
         }
     </style>
@@ -318,7 +357,7 @@
                             les saluda <strong>Fernando Clemente Arana</strong>, candidato a la alcaldía 
                             provincial de Huancavelica por el Partido Político <span class="highlight-gold">Acción Popular</span>.
                         </p>
-                        <p style="margin-top: 20px;">
+                        <p>
                             Como hijo de auténticos huancavelicanos, mis estudios los realicé en la 
                             <strong>I.E. N.° 36011</strong> del barrio de San Cristóbal, 
                             <strong>Colegio Ramón Castilla Marquesado</strong>, ex Comercio N.° 76; 
@@ -328,7 +367,7 @@
                             <strong>Primera Casa Superior de Estudios de Huancavelica</strong> 
                             en la Facultad de Ciencias Empresariales, Escuela Académico Profesional de Contabilidad.
                         </p>
-                        <p style="margin-top: 20px;">
+                        <p>
                             Actualmente me desempeño como <strong>Contador Público Colegiado Certificado</strong>, 
                             con experiencia en gestión pública y privada; asimismo soy miembro del 
                             <strong>Consejo Directivo del Colegio de Contadores Públicos de Huancavelica</strong>; 
@@ -344,7 +383,7 @@
         </div>
 
         <!-- ============================================================
-        CARDS - TRAYECTORIA DESTACADA
+        TARJETAS - TRAYECTORIA
         ============================================================ -->
         <div class="conoceme-content">
             <div class="container">
@@ -424,14 +463,14 @@
         <!-- ============================================================
         LLAMADO A LA ACCIÓN
         ============================================================ -->
-        <div style="padding: 60px 0 80px; background: var(--color-off-white);">
+        <div class="cta-section">
             <div class="container text-center animate-on-scroll">
                 <h2 class="section-title" style="font-size: 2.8rem;">
                     ¿Quieres <span>sumarte</span> al cambio?
                 </h2>
                 <p class="section-subtitle mx-auto" style="margin-bottom: 32px;">
                     Huancavelica necesita personas comprometidas como tú. 
-                    Únete a nuestra campaña y se parte de la transformación.
+                    Únete a nuestra campaña y sé parte de la transformación.
                 </p>
                 <a href="../index.html#sumate" class="btn btn-primary">
                     <i class="fas fa-handshake"></i> Súmate ahora
@@ -449,7 +488,7 @@
     <fca-footer></fca-footer>
 
     <!-- ============================================================
-    SCRIPTS
+    SCRIPTS - RUTAS CORREGIDAS
     ============================================================ -->
     <script src="../js/web-components.js"></script>
     <script src="../js/main.js"></script>
