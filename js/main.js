@@ -2,9 +2,9 @@
 // INYECTOR DE COMPONENTES GLOBALES - VERSIÓN GITHUB PAGES
 // ============================================================
 
-// Función para cargar header y footer
+// Función para cargar header, footer y formulario
 function loadComponents() {
-    // Cargar HEADER usando XMLHttpRequest (más compatible)
+    // Cargar HEADER
     var xhrHeader = new XMLHttpRequest();
     xhrHeader.open('GET', 'components/header.html', true);
     xhrHeader.onreadystatechange = function() {
@@ -20,7 +20,7 @@ function loadComponents() {
     };
     xhrHeader.send();
 
-    // Cargar FOOTER usando XMLHttpRequest
+    // Cargar FOOTER
     var xhrFooter = new XMLHttpRequest();
     xhrFooter.open('GET', 'components/footer.html', true);
     xhrFooter.onreadystatechange = function() {
@@ -34,10 +34,27 @@ function loadComponents() {
         }
     };
     xhrFooter.send();
+
+    // Cargar FORMULARIO GLOBAL
+    var xhrForm = new XMLHttpRequest();
+    xhrForm.open('GET', 'components/formulario.html', true);
+    xhrForm.onreadystatechange = function() {
+        if (xhrForm.readyState === 4) {
+            if (xhrForm.status === 200 || xhrForm.status === 0) {
+                document.querySelectorAll('.sumate__form-container').forEach(function(el) {
+                    el.innerHTML = xhrForm.responseText;
+                });
+                initForm();
+            } else {
+                console.error('Error cargando formulario:', xhrForm.status);
+            }
+        }
+    };
+    xhrForm.send();
 }
 
 // ============================================================
-// HEADER DE RESPALDO (si no carga)
+// HEADER DE RESPALDO
 // ============================================================
 function mostrarHeaderRespaldo() {
     var headerHTML = `
@@ -69,7 +86,7 @@ function mostrarHeaderRespaldo() {
 }
 
 // ============================================================
-// FOOTER DE RESPALDO (si no carga)
+// FOOTER DE RESPALDO
 // ============================================================
 function mostrarFooterRespaldo() {
     var footerHTML = `
@@ -121,7 +138,6 @@ function mostrarFooterRespaldo() {
 // INICIALIZAR HEADER
 // ============================================================
 function initHeader() {
-    // Detectar página actual
     var currentPage = window.location.pathname.split('/').pop() || 'index.html';
     var navLinks = {
         'index.html': 'nav-inicio',
@@ -140,7 +156,6 @@ function initHeader() {
         }
     }
 
-    // HEADER SCROLL
     var header = document.getElementById('header');
     if (header) {
         window.addEventListener('scroll', function() {
@@ -152,7 +167,6 @@ function initHeader() {
         });
     }
 
-    // HAMBURGUESA
     var hamburger = document.getElementById('hamburger');
     var mainMenu = document.getElementById('mainMenu');
 
@@ -214,30 +228,25 @@ function initCounters() {
 }
 
 // ============================================================
-// FORMULARIO
+// FORMULARIO GLOBAL
 // ============================================================
 function initForm() {
     var form = document.getElementById('formSumate');
     var message = document.getElementById('formMessage');
-    if (form && message) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            message.style.color = '#C8102E';
-            message.textContent = '✅ ¡Gracias por sumarte! Pronto recibirás más información.';
-            form.reset();
-            setTimeout(function() { message.textContent = ''; }, 5000);
-        });
-    }
 
-    var formCompleto = document.getElementById('formSumateCompleto');
-    var messageCompleto = document.getElementById('formMessageCompleto');
-    if (formCompleto && messageCompleto) {
-        formCompleto.addEventListener('submit', function(e) {
+    if (form && message) {
+        var newForm = form.cloneNode(true);
+        form.parentNode.replaceChild(newForm, form);
+
+        newForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            messageCompleto.style.color = '#C8102E';
-            messageCompleto.textContent = '✅ ¡Gracias por registrarte! Pronto recibirás más información.';
-            formCompleto.reset();
-            setTimeout(function() { messageCompleto.textContent = ''; }, 5000);
+            var msg = document.getElementById('formMessage');
+            if (msg) {
+                msg.style.color = '#C8102E';
+                msg.textContent = '✅ ¡Gracias por sumarte! Pronto recibirás más información.';
+                newForm.reset();
+                setTimeout(function() { msg.textContent = ''; }, 5000);
+            }
         });
     }
 }
@@ -267,7 +276,6 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(function() {
         initScrollAnimations();
         initCounters();
-        initForm();
         initSmoothScroll();
         document.querySelectorAll('.filtros__btn').forEach(function(btn) {
             btn.addEventListener('click', function() {
