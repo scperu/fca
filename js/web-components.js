@@ -8,7 +8,6 @@
 class FcaHeader extends HTMLElement {
     constructor() {
         super();
-        // Usamos Shadow DOM para encapsulamiento
         this.attachShadow({ mode: 'open' });
     }
 
@@ -20,7 +19,6 @@ class FcaHeader extends HTMLElement {
     render() {
         this.shadowRoot.innerHTML = `
             <style>
-                /* Estilos encapsulados para el header */
                 :host {
                     display: block;
                     position: fixed;
@@ -193,7 +191,6 @@ class FcaHeader extends HTMLElement {
                     transform: rotate(-45deg) translate(5px, -5px);
                 }
 
-                /* Responsive */
                 @media (max-width: 768px) {
                     .header__brand img {
                         width: 30px;
@@ -283,7 +280,6 @@ class FcaHeader extends HTMLElement {
         const hamburger = this.shadowRoot.getElementById('hamburger');
         const mainMenu = this.shadowRoot.getElementById('mainMenu');
 
-        // Scroll behavior
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 host.classList.add('scrolled');
@@ -292,13 +288,11 @@ class FcaHeader extends HTMLElement {
             }
         }, { passive: true });
 
-        // Hamburger menu
         hamburger?.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             mainMenu?.classList.toggle('open');
         });
 
-        // Cerrar menú al hacer clic en un enlace
         this.shadowRoot.querySelectorAll('.header__menu a').forEach(link => {
             link.addEventListener('click', () => {
                 hamburger?.classList.remove('active');
@@ -438,35 +432,100 @@ class FcaPilares extends HTMLElement {
 customElements.define('fca-pilares', FcaPilares);
 
 // ============================================================
-// 5. CONÓCEME COMPONENT
+// 5. CONÓCEME COMPONENT (ACTUALIZADO CON BIOGRAFÍA REAL)
 // ============================================================
 class FcaConoceme extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-            <section class="conoceme" id="conoceme">
-                <div class="container conoceme__inner">
-                    <div class="conoceme__image animate-on-scroll">
-                        <img src="assets/images/fca.jpeg" alt="Fernando Clemente Arana" loading="lazy" />
-                        <div class="experience-badge">
-                            <div class="number">10+</div>
-                            <div class="label">Años de trayectoria</div>
+            <section class="conoceme" id="conoceme" style="padding: 80px 0; background: #fff;">
+                <div class="container">
+
+                    <!-- Encabezado -->
+                    <div style="text-align: center; max-width: 750px; margin: 0 auto 45px;">
+                        <span style="display: inline-block; background: #C8102E; color: #fff; padding: 5px 20px; border-radius: 30px; font-size: 0.75rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 14px;">Conóceme</span>
+                        <h2 class="section-title" style="margin-bottom: 10px; font-size: 2.4rem;">Fernando <span>Clemente Arana</span></h2>
+                        <p style="color: #C8102E; font-weight: 600; font-size: 1rem; margin-bottom: 10px;">
+                            <i class="fas fa-hand-peace" style="margin-right: 8px;"></i>
+                            Candidato a la Alcaldía Provincial de Huancavelica · Acción Popular
+                        </p>
+                        <p style="color: #6C757D; font-size: 1rem; line-height: 1.7; font-style: italic;">
+                            "Hijo de auténticos huancavelicanos, formado en nuestras instituciones educativas, 
+                            Contador Público Colegiado y miembro del Consejo Directivo del Colegio de Contadores de Huancavelica."
+                        </p>
+                    </div>
+
+                    <!-- Grid: Foto + Texto -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1100px; margin: 0 auto; align-items: center;">
+
+                        <!-- Foto -->
+                        <div style="position: relative;">
+                            <div style="border-radius: 16px; overflow: hidden; box-shadow: 0 15px 45px rgba(0,0,0,0.12);">
+                                <img 
+                                    src="assets/images/fca_simbolo.jpeg" 
+                                    alt="Fernando Clemente Arana" 
+                                    style="width: 100%; height: auto; display: block;"
+                                />
+                            </div>
+                            <div style="position: absolute; bottom: -12px; right: -12px; background: #C8102E; color: #fff; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 900; box-shadow: 0 8px 25px rgba(200, 16, 46, 0.4); border: 3px solid #fff;">
+                                AP
+                            </div>
+                            <div style="position: absolute; top: -8px; left: -8px; background: #1A1A2E; color: #fff; padding: 5px 14px; border-radius: 20px; font-size: 0.65rem; font-weight: 600; border: 2px solid #fff;">
+                                <i class="fas fa-certificate" style="margin-right: 4px;"></i>
+                                Contador Público Colegiado
+                            </div>
+                        </div>
+
+                        <!-- Texto con biografía real -->
+                        <div>
+                            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #1A1A2E; margin-bottom: 14px;">
+                                <i class="fas fa-quote-left" style="color: #C8102E; font-size: 1.2rem; margin-right: 8px;"></i>
+                                Un verdadero huancavelicano
+                            </h3>
+
+                            <p style="color: #495057; line-height: 1.8; margin-bottom: 12px; font-size: 0.98rem;">
+                                <strong>Fernando Clemente Arana</strong> es <strong>hijo de auténticos huancavelicanos</strong>. 
+                                Estudió en la <strong>I.E. N.° 36011</strong> (San Cristóbal), el 
+                                <strong>Colegio Ramón Castilla Marquesado</strong> (ex Comercio N.° 76), 
+                                y es <strong>Contador Público</strong> egresado del Instituto Superior Tecnológico Público 
+                                y de la Primera Casa Superior de Estudios de Huancavelica.
+                            </p>
+
+                            <p style="color: #495057; line-height: 1.8; margin-bottom: 18px; font-size: 0.98rem;">
+                                Actualmente es <strong>miembro del Consejo Directivo del Colegio de Contadores Públicos de Huancavelica</strong>, 
+                                con amplia experiencia en gestión pública y privada.
+                            </p>
+
+                            <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
+                                <span style="background: #F8F9FA; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; color: #1A1A2E; border: 1px solid #E9ECEF;">
+                                    <i class="fas fa-check-circle" style="color: #C8102E; margin-right: 4px;"></i>
+                                    Contador Público Certificado
+                                </span>
+                                <span style="background: #F8F9FA; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; color: #1A1A2E; border: 1px solid #E9ECEF;">
+                                    <i class="fas fa-check-circle" style="color: #C8102E; margin-right: 4px;"></i>
+                                    Consejo Directivo CCPH
+                                </span>
+                                <span style="background: #F8F9FA; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; color: #1A1A2E; border: 1px solid #E9ECEF;">
+                                    <i class="fas fa-check-circle" style="color: #C8102E; margin-right: 4px;"></i>
+                                    Gestión Pública y Privada
+                                </span>
+                            </div>
+
+                            <a href="pages/conoceme.html" style="display: inline-flex; align-items: center; background: #C8102E; color: #fff; padding: 11px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s; box-shadow: 0 8px 25px rgba(200, 16, 46, 0.3);">
+                                <i class="fas fa-chevron-right" style="margin-right: 10px;"></i>
+                                Conoce más de mi trayectoria
+                            </a>
                         </div>
                     </div>
-                    <div class="conoceme__content animate-on-scroll">
-                        <span class="section-tag">Mi Historia</span>
-                        <h2 class="section-title">Conoce mi <span>trayectoria</span></h2>
-                        <p>
-                            Te invito a conocer más de mi infancia, mi formación profesional
-                            y mi compromiso con el desarrollo de Huancavelica.
+
+                    <!-- Frase destacada -->
+                    <div style="max-width: 900px; margin: 40px auto 0; background: linear-gradient(135deg, #C8102E, #A00D25); color: #fff; padding: 20px 30px; border-radius: 14px; text-align: center;">
+                        <p style="font-size: 1.1rem; line-height: 1.6; margin: 0; font-weight: 400;">
+                            <i class="fas fa-quote-left" style="font-size: 1.2rem; opacity: 0.5; margin-right: 10px;"></i>
+                            <strong>"Por tal razón me considero un verdadero y auténtico huancavelicano,</strong> 
+                            comprometido con el desarrollo de nuestra provincia."
                         </p>
-                        <p>
-                            Una trayectoria forjada con esfuerzo, valores y el compromiso de
-                            servir a mi pueblo con honestidad y eficiencia.
-                        </p>
-                        <a href="pages/conoceme.html" class="btn btn-primary">
-                            <i class="fas fa-arrow-right"></i> Ingresa Aquí
-                        </a>
                     </div>
+
                 </div>
             </section>
         `;
