@@ -1,137 +1,146 @@
 // ============================================================
-// MAIN.JS - Funcionalidades principales
+// MAIN.JS - FUNCIONALIDADES PRINCIPALES
 // ============================================================
 
-// ============================================================
-// 1. SCROLL ANIMATIONS
-// ============================================================
-function initScrollAnimations() {
-    const animateElements = document.querySelectorAll('.animate-on-scroll');
+document.addEventListener('DOMContentLoaded', function() {
 
-    if ('IntersectionObserver' in window) {
+    // ============================================================
+    // 1. ANIMACIÓN DE CONTADORES (STATS)
+    // ============================================================
+    function animateCounters() {
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = parseInt(entry.target.getAttribute('data-target'));
+                    const increment = target / speed;
+                    let current = 0;
+
+                    const updateCounter = () => {
+                        current += increment;
+                        if (current < target) {
+                            entry.target.textContent = Math.ceil(current);
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            entry.target.textContent = target;
+                        }
+                    };
+                    updateCounter();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => observer.observe(counter));
+    }
+
+    animateCounters();
+
+    // ============================================================
+    // 2. ANIMACIÓN DE ELEMENTOS AL HACER SCROLL
+    // ============================================================
+    function animateOnScroll() {
+        const elements = document.querySelectorAll('.animate-on-scroll');
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
                 }
             });
         }, {
-            threshold: 0.08,
-            rootMargin: '0px 0px -30px 0px'
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
         });
 
-        animateElements.forEach(el => observer.observe(el));
-    } else {
-        // Fallback para navegadores antiguos
-        animateElements.forEach(el => el.classList.add('visible'));
+        elements.forEach(element => observer.observe(element));
     }
-}
 
-// ============================================================
-// 2. COUNTERS
-// ============================================================
-function initCounters() {
-    const counters = document.querySelectorAll('.counter');
+    animateOnScroll();
 
-    if ('IntersectionObserver' in window) {
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const target = parseInt(entry.target.getAttribute('data-target'));
-                    let current = 0;
-                    const increment = target / 50;
-                    
-                    const timer = setInterval(() => {
-                        current += increment;
-                        if (current >= target) {
-                            entry.target.textContent = target;
-                            clearInterval(timer);
-                        } else {
-                            entry.target.textContent = Math.floor(current);
-                        }
-                    }, 25);
-                    
-                    counterObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.3 });
-
-        counters.forEach(counter => counterObserver.observe(counter));
-    } else {
-        // Fallback: mostrar todos los números sin animación
-        counters.forEach(counter => {
-            counter.textContent = counter.getAttribute('data-target');
-        });
-    }
-}
-
-// ============================================================
-// 3. FORMULARIO
-// ============================================================
-function initForm() {
+    // ============================================================
+    // 3. FORMULARIO DE SÚMATE (VALIDACIÓN)
+    // ============================================================
     const form = document.getElementById('formSumate');
-    const message = document.getElementById('formMessage');
+    const formMessage = document.getElementById('formMessage');
 
-    if (!form) return;
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
 
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
+            const nombre = document.getElementById('nombre').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const telefono = document.getElementById('telefono').value.trim();
 
-        // Validación básica
-        const nombre = document.getElementById('nombre');
-        const email = document.getElementById('email');
-        const telefono = document.getElementById('telefono');
+            // Validación básica
+            if (!nombre || !email || !telefono) {
+                formMessage.innerHTML = `
+                    <div style="color: #C8102E; padding: 12px; background: #FFE5E5; border-radius: 8px;">
+                        <i class="fas fa-exclamation-circle"></i> 
+                        Por favor, completa todos los campos obligatorios.
+                    </div>
+                `;
+                return;
+            }
 
-        if (!nombre.value.trim() || !email.value.trim() || !telefono.value.trim()) {
-            showMessage('⚠️ Por favor, completa todos los campos requeridos.', '#FF6B35');
-            return;
-        }
+            // Validación de email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                formMessage.innerHTML = `
+                    <div style="color: #C8102E; padding: 12px; background: #FFE5E5; border-radius: 8px;">
+                        <i class="fas fa-exclamation-circle"></i> 
+                        Por favor, ingresa un correo electrónico válido.
+                    </div>
+                `;
+                return;
+            }
 
-        // Validación de email
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email.value)) {
-            showMessage('⚠️ Por favor, ingresa un correo electrónico válido.', '#FF6B35');
-            return;
-        }
+            // Validación de teléfono (solo números)
+            const phoneRegex = /^\d{9}$/;
+            if (!phoneRegex.test(telefono)) {
+                formMessage.innerHTML = `
+                    <div style="color: #C8102E; padding: 12px; background: #FFE5E5; border-radius: 8px;">
+                        <i class="fas fa-exclamation-circle"></i> 
+                        Por favor, ingresa un número telefónico válido (9 dígitos).
+                    </div>
+                `;
+                return;
+            }
 
-        // Simular envío exitoso
-        showMessage('✅ ¡Gracias por sumarte! Pronto recibirás más información.', '#C8102E');
-        
-        form.reset();
+            // Simulación de envío exitoso
+            formMessage.innerHTML = `
+                <div style="color: #28A745; padding: 12px; background: #E6F9E6; border-radius: 8px;">
+                    <i class="fas fa-check-circle"></i> 
+                    ¡Gracias por sumarte al cambio! Pronto recibirás más información.
+                </div>
+            `;
 
-        // Limpiar mensaje después de 5 segundos
-        setTimeout(() => {
-            message.textContent = '';
-        }, 5000);
-    });
-}
-
-function showMessage(text, color) {
-    const message = document.getElementById('formMessage');
-    if (message) {
-        message.style.color = color;
-        message.textContent = text;
+            // Resetear el formulario después de 3 segundos
+            setTimeout(() => {
+                form.reset();
+            }, 3000);
+        });
     }
-}
 
-// ============================================================
-// 4. SMOOTH SCROLL
-// ============================================================
-function initSmoothScroll() {
+    // ============================================================
+    // 4. SMOOTH SCROLL PARA ENLACES INTERNOS
+    // ============================================================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
             
-            // Ignorar enlaces vacíos o externos
-            if (href === '#' || href === '' || href.startsWith('http')) return;
-            
-            e.preventDefault();
-            
+            // Ignorar si es un enlace vacío o solo "#"
+            if (href === '#' || href === '') return;
+
             const target = document.querySelector(href);
             if (target) {
+                e.preventDefault();
                 const headerOffset = 80;
                 const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.scrollY - headerOffset;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
                 window.scrollTo({
                     top: offsetPosition,
@@ -140,17 +149,5 @@ function initSmoothScroll() {
             }
         });
     });
-}
 
-// ============================================================
-// 5. INICIALIZACIÓN
-// ============================================================
-document.addEventListener('DOMContentLoaded', function() {
-    // Inicializar todas las funcionalidades
-    initScrollAnimations();
-    initCounters();
-    initForm();
-    initSmoothScroll();
-    
-    console.log('✅ FCA Campaign - Inicializado correctamente');
 });

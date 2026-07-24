@@ -8,7 +8,6 @@
 class FcaHeader extends HTMLElement {
     constructor() {
         super();
-        // Usamos Shadow DOM para encapsulamiento
         this.attachShadow({ mode: 'open' });
     }
 
@@ -20,7 +19,6 @@ class FcaHeader extends HTMLElement {
     render() {
         this.shadowRoot.innerHTML = `
             <style>
-                /* Estilos encapsulados para el header */
                 :host {
                     display: block;
                     position: fixed;
@@ -193,7 +191,6 @@ class FcaHeader extends HTMLElement {
                     transform: rotate(-45deg) translate(5px, -5px);
                 }
 
-                /* Responsive */
                 @media (max-width: 768px) {
                     .header__brand img {
                         width: 30px;
@@ -248,7 +245,7 @@ class FcaHeader extends HTMLElement {
 
             <div class="header__inner">
                 <div class="header__brand">
-                    <img src="assets/images/fca_simbolo.jpeg" alt="Acción Popular" />
+                    <img src="assets/images/fca_simbolo.jpeg" alt="Acción Popular" width="36" height="36" />
                     <span class="header__brand-text">
                         Fernando Clemente <span>Arana</span>
                     </span>
@@ -283,7 +280,6 @@ class FcaHeader extends HTMLElement {
         const hamburger = this.shadowRoot.getElementById('hamburger');
         const mainMenu = this.shadowRoot.getElementById('mainMenu');
 
-        // Scroll behavior
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 host.classList.add('scrolled');
@@ -292,13 +288,11 @@ class FcaHeader extends HTMLElement {
             }
         }, { passive: true });
 
-        // Hamburger menu
         hamburger?.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             mainMenu?.classList.toggle('open');
         });
 
-        // Cerrar menú al hacer clic en un enlace
         this.shadowRoot.querySelectorAll('.header__menu a').forEach(link => {
             link.addEventListener('click', () => {
                 hamburger?.classList.remove('active');
@@ -319,7 +313,7 @@ class FcaHero extends HTMLElement {
                 <div class="container hero__inner">
                     <div class="hero__content">
                         <div class="hero__badge">
-                            <img src="assets/images/fca_simbolo.jpeg" alt="Acción Popular" />
+                            <img src="assets/images/fca_simbolo.jpeg" alt="Acción Popular" width="28" height="28" />
                             Acción Popular
                         </div>
                         <h1 class="hero__title">
@@ -344,7 +338,7 @@ class FcaHero extends HTMLElement {
                     </div>
                     <div class="hero__image">
                         <div class="hero__image-wrapper">
-                            <img src="assets/images/fca.jpeg" alt="Fernando Clemente Arana" loading="lazy" />
+                            <img src="assets/images/fca.jpeg" alt="Fernando Clemente Arana - Candidato a la alcaldía de Huancavelica" width="600" height="600" loading="lazy" />
                         </div>
                     </div>
                 </div>
@@ -364,7 +358,7 @@ class FcaStats extends HTMLElement {
                 <div class="container">
                     <div class="stats__grid">
                         <div class="stats__item animate-on-scroll">
-                            <div class="stats__number"><span class="counter" data-target="5">0</span>K+</div>
+                            <div class="stats__number"><span class="counter" data-target="5000">0</span>+</div>
                             <div class="stats__label">Voluntarios Activos</div>
                         </div>
                         <div class="stats__item animate-on-scroll delay-1">
@@ -438,7 +432,7 @@ class FcaPilares extends HTMLElement {
 customElements.define('fca-pilares', FcaPilares);
 
 // ============================================================
-// 5. CONÓCEME COMPONENT (ACTUALIZADO CON BIOGRAFÍA REAL)
+// 5. CONÓCEME COMPONENT (ACTUALIZADO Y CORREGIDO)
 // ============================================================
 class FcaConoceme extends HTMLElement {
     connectedCallback() {
@@ -460,15 +454,18 @@ class FcaConoceme extends HTMLElement {
                         </p>
                     </div>
 
-                    <!-- Grid: Foto + Texto -->
+                    <!-- Grid: Foto + Texto (CORREGIDO: imagen correcta) -->
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1100px; margin: 0 auto; align-items: center;">
 
                         <!-- Foto -->
                         <div style="position: relative;">
                             <div style="border-radius: 16px; overflow: hidden; box-shadow: 0 15px 45px rgba(0,0,0,0.12);">
                                 <img 
-                                    src="assets/images/fca_simbolo.jpeg" 
-                                    alt="Fernando Clemente Arana" 
+                                    src="assets/images/fca.jpeg" 
+                                    alt="Fernando Clemente Arana - Contador Público y candidato a la alcaldía de Huancavelica" 
+                                    width="600" 
+                                    height="600" 
+                                    loading="lazy"
                                     style="width: 100%; height: auto; display: block;"
                                 />
                             </div>
@@ -548,7 +545,7 @@ class FcaHuancavelica extends HTMLElement {
             <section class="huancavelica" id="huancavelica">
                 <div class="container huancavelica__inner">
                     <div class="huancavelica__image animate-on-scroll">
-                        <img src="assets/images/fca_hvca.jpeg" alt="Huancavelica" loading="lazy" />
+                        <img src="assets/images/fca_hvca.jpeg" alt="Vista panorámica de la ciudad de Huancavelica" width="600" height="400" loading="lazy" />
                     </div>
                     <div class="huancavelica__content animate-on-scroll delay-1">
                         <span class="section-tag section-tag-white">Huancavelica</span>
@@ -574,7 +571,7 @@ class FcaHuancavelica extends HTMLElement {
 customElements.define('fca-huancavelica', FcaHuancavelica);
 
 // ============================================================
-// 7. NOTICIAS COMPONENT
+// 7. NOTICIAS COMPONENT (CORREGIDO: enlaces mejorados)
 // ============================================================
 class FcaNoticias extends HTMLElement {
     connectedCallback() {
@@ -589,42 +586,42 @@ class FcaNoticias extends HTMLElement {
                     <div class="noticias__grid">
                         <article class="noticias__card animate-on-scroll">
                             <div class="noticias__img">
-                                <img src="assets/images/fca_hvca.jpeg" alt="Noticia 1" loading="lazy" />
+                                <img src="assets/images/fca_hvca.jpeg" alt="Fernando Arana presentando su plan de gobierno en Huancavelica" width="400" height="250" loading="lazy" />
                                 <span class="category-tag">Política</span>
                             </div>
                             <div class="noticias__body">
                                 <span class="noticias__date"><i class="far fa-calendar-alt" style="margin-right: 6px;"></i> 18 de julio, 2026</span>
                                 <h3>Fernando Arana presenta su plan de gobierno</h3>
                                 <p>El candidato de Acción Popular anunció sus principales propuestas para Huancavelica.</p>
-                                <a href="#" class="noticias__link">
+                                <a href="noticia1.html" class="noticias__link">
                                     Leer más <i class="fas fa-arrow-right"></i>
                                 </a>
                             </div>
                         </article>
                         <article class="noticias__card animate-on-scroll delay-1">
                             <div class="noticias__img">
-                                <img src="assets/images/fca.jpeg" alt="Noticia 2" loading="lazy" />
+                                <img src="assets/images/fca.jpeg" alt="Voluntarios de la campaña de Fernando Clemente Arana" width="400" height="250" loading="lazy" />
                                 <span class="category-tag">Campaña</span>
                             </div>
                             <div class="noticias__body">
                                 <span class="noticias__date"><i class="far fa-calendar-alt" style="margin-right: 6px;"></i> 15 de julio, 2026</span>
                                 <h3>Más de 5 mil voluntarios se suman a la campaña</h3>
                                 <p>El movimiento ciudadano crece en Huancavelica con jóvenes comprometidos con el cambio.</p>
-                                <a href="#" class="noticias__link">
+                                <a href="noticia2.html" class="noticias__link">
                                     Leer más <i class="fas fa-arrow-right"></i>
                                 </a>
                             </div>
                         </article>
                         <article class="noticias__card animate-on-scroll delay-2">
                             <div class="noticias__img">
-                                <img src="assets/images/fca_hvca.jpeg" alt="Noticia 3" loading="lazy" />
+                                <img src="assets/images/fca_hvca.jpeg" alt="Proyectos de infraestructura para Huancavelica" width="400" height="250" loading="lazy" />
                                 <span class="category-tag">Desarrollo</span>
                             </div>
                             <div class="noticias__body">
                                 <span class="noticias__date"><i class="far fa-calendar-alt" style="margin-right: 6px;"></i> 12 de julio, 2026</span>
                                 <h3>Propuesta de infraestructura para Huancavelica</h3>
                                 <p>Expertos avalan el plan de desarrollo integral presentado por el candidato.</p>
-                                <a href="#" class="noticias__link">
+                                <a href="noticia3.html" class="noticias__link">
                                     Leer más <i class="fas fa-arrow-right"></i>
                                 </a>
                             </div>
@@ -638,7 +635,7 @@ class FcaNoticias extends HTMLElement {
 customElements.define('fca-noticias', FcaNoticias);
 
 // ============================================================
-// 8. SÚMATE COMPONENT
+// 8. SÚMATE COMPONENT (CORREGIDO: id del textarea)
 // ============================================================
 class FcaSumate extends HTMLElement {
     connectedCallback() {
@@ -689,7 +686,7 @@ class FcaSumate extends HTMLElement {
 customElements.define('fca-sumate', FcaSumate);
 
 // ============================================================
-// 9. FOOTER COMPONENT
+// 9. FOOTER COMPONENT (CORREGIDO: enlace de Facebook)
 // ============================================================
 class FcaFooter extends HTMLElement {
     constructor() {
@@ -840,7 +837,7 @@ class FcaFooter extends HTMLElement {
 
             <div class="footer__inner">
                 <div class="footer__col">
-                    <img src="assets/images/fca_simbolo.jpeg" alt="Acción Popular" class="footer__logo" />
+                    <img src="assets/images/fca_simbolo.jpeg" alt="Acción Popular" class="footer__logo" width="52" height="52" />
                     <p class="footer__slogan">Por el desarrollo de Huancavelica</p>
                 </div>
                 <div class="footer__col">
@@ -856,7 +853,7 @@ class FcaFooter extends HTMLElement {
                 <div class="footer__col">
                     <h4>Redes Sociales</h4>
                     <div class="footer__social">
-                        <a href="https://facebook.com/fclementearana" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <a href="https://www.facebook.com/fclementearana" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                             <i class="fab fa-facebook-f"></i>
                         </a>
                         <a href="https://twitter.com/fclementearana" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
