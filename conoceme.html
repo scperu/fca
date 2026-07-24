@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conóceme | Fernando Clemente Arana</title>
+
+    <meta name="description" content="Conoce la trayectoria y compromiso de Fernando Clemente Arana con Huancavelica." />
+    <meta name="keywords" content="Fernando Clemente Arana, trayectoria, Huancavelica, contador, Acción Popular" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Conóceme | Fernando Clemente Arana" />
+    <meta property="og:description" content="Conoce la trayectoria de Fernando Clemente Arana, candidato a la alcaldía de Huancavelica." />
+    <meta property="og:image" content="../assets/images/fca_simbolo.jpeg" />
+    <meta property="og:type" content="website" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/styles.css" />
+
+    <style>
+        /* ============================================================
+           ESTILOS ESPECÍFICOS PARA CONÓCEME
+           ============================================================ */
+        .conoceme-page {
+            padding-top: 0;
+            background: var(--color-white);
+        }
+
+        .conoceme-page .hero-conoceme {
+            background: linear-gradient(135deg, var(--color-black) 0%, var(--color-black-light) 100%);
+            padding: 140px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .conoceme-page .hero-conoceme::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(200, 16, 46, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .conoceme-page .hero-conoceme::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .conoceme-page .hero-conoceme .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .conoceme-page .hero-conoceme .section-title {
+            color: var(--color-white);
+            font-size: 3.8rem;
+        }
+
+        .conoceme-page .hero-conoceme .section-title span {
+            color: var(--color-gold);
+        }
+
+        .conoceme-page .hero-conoceme .subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.2rem;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 16px auto 0;
+        }
+
+        /* BIOGRAFÍA */
+        .bio-section {
+            background: var(--color-off-white);
+            padding: 80px 0;
+            border-bottom: 1px solid var(--color-gray);
+        }
+
+        .bio-section .bio-content {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .bio-section .bio-content .bio-text {
+            font-size: 1.1rem;
+            color: var(--color-gray-dark);
+            line-height: 2;
+            font-weight: 300;
+        }
+
+        .bio-section .bio-content .bio-text p {
+            margin-bottom: 20px;
+        }
+
+        .bio-section .bio-content .bio-text strong {
+            color: var(--color-red);
+            font-weight: 600;
+        }
+
+        .bio-section .bio-content .bio-text .highlight-gold {
+            color: var(--color-gold);
+            font-weight: 600;
+        }
+
+        .bio-section .signature {
+            margin-top: 32px;
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--color-red);
+            font-style: italic;
+            text-align: right;
+            border-top: 3px solid var(--color-red);
+            padding-top: 24px;
+            max-width: 400px;
+            margin-left: auto;
+        }
+
+        /* TARJETAS */
+        .conoceme-content {
+            padding: 80px 0;
+        }
+
+        .conoceme-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .conoceme-card {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--color-gray);
+            transition: var(--transition-elastic);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .conoceme-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-red), var(--color-gold));
+            opacity: 0;
+            transition: var(--transition-smooth);
+        }
+
+        .conoceme-card:hover::before {
+            opacity: 1;
+        }
+
+        .conoceme-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .conoceme-card .card-icon {
+            font-size: 2.8rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .conoceme-card h3 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--color-red);
+            margin-bottom: 12px;
+        }
+
+        .conoceme-card p {
+            color: var(--color-gray-dark);
+            font-size: 1rem;
+            line-height: 1.9;
+            font-weight: 300;
+        }
+
+        .conoceme-card p strong {
+            color: var(--color-black);
+            font-weight: 600;
+        }
+
+        /* CITA */
+        .quote-block {
+            background: var(--color-black);
+            padding: 50px 60px;
+            border-radius: var(--radius-lg);
+            margin: 0 auto 60px;
+            max-width: 850px;
+            position: relative;
+        }
+
+        .quote-block::before {
+            content: '"';
+            font-family: var(--font-display);
+            font-size: 6rem;
+            color: var(--color-red);
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            opacity: 0.2;
+        }
+
+        .quote-block blockquote {
+            color: var(--color-white);
+            font-size: 1.4rem;
+            font-weight: 300;
+            line-height: 1.8;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote-block blockquote cite {
+            display: block;
+            margin-top: 16px;
+            font-style: normal;
+            color: var(--color-gold);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        /* CTA */
+        .cta-section {
+            padding: 60px 0 80px;
+            background: var(--color-off-white);
+        }
+
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 768px) {
+            .conoceme-page .hero-conoceme {
+                padding: 120px 0 60px;
+            }
+
+            .conoceme-page .hero-conoceme .section-title {
+                font-size: 2.6rem;
+            }
+
+            .conoceme-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .conoceme-card {
+                padding: 28px;
+            }
+
+            .quote-block {
+                padding: 30px 24px;
+                margin: 0 16px 40px;
+            }
+
+            .quote-block blockquote {
+                font-size: 1.1rem;
+            }
+
+            .bio-section .bio-content .bio-text {
+                font-size: 1rem;
+                padding: 0 16px;
+            }
+
+            .bio-section .signature {
+                font-size: 1.4rem;
+                text-align: center;
+                margin: 24px auto 0;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .conoceme-page .hero-conoceme .section-title {
+                font-size: 2rem;
+            }
+
+            .conoceme-page .hero-conoceme .subtitle {
+                font-size: 1rem;
+            }
+
+            .conoceme-card {
+                padding: 20px;
+            }
+
+            .conoceme-card h3 {
+                font-size: 1.1rem;
+            }
+
+            .conoceme-card .card-icon {
+                font-size: 2.2rem;
+            }
+
+            .quote-block blockquote {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================
+    HEADER
+    ============================================================ -->
+    <fca-header></fca-header>
+
+    <!-- ============================================================
+    HERO - CONÓCEME
+    ============================================================ -->
+    <section class="conoceme-page">
+        <div class="hero-conoceme">
+            <div class="container">
+                <div class="text-center animate-on-scroll">
+                    <span class="section-tag section-tag-white">Conóceme</span>
+                    <h1 class="section-title section-title-white">
+                        Mi <span>trayectoria</span>
+                    </h1>
+                    <p class="subtitle">
+                        Un huancavelicano comprometido con su tierra y su gente
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        BIOGRAFÍA COMPLETA
+        ============================================================ -->
+        <div class="bio-section">
+            <div class="container">
+                <div class="bio-content animate-on-scroll">
+                    <div class="bio-text">
+                        <p>
+                            <strong>Hermanas y hermanos huancavelicanos, jóvenes estudiantes;</strong> 
+                            les saluda <strong>Fernando Clemente Arana</strong>, candidato a la alcaldía 
+                            provincial de Huancavelica por el Partido Político <span class="highlight-gold">Acción Popular</span>.
+                        </p>
+                        <p>
+                            Como hijo de auténticos huancavelicanos, mis estudios los realicé en la 
+                            <strong>I.E. N.° 36011</strong> del barrio de San Cristóbal, 
+                            <strong>Colegio Ramón Castilla Marquesado</strong>, ex Comercio N.° 76; 
+                            asimismo, mis estudios superiores los cursé en el 
+                            <strong>Instituto Superior Tecnológico Público de Huancavelica</strong> 
+                            en la especialidad de <strong>Contabilidad</strong> y en la 
+                            <strong>Primera Casa Superior de Estudios de Huancavelica</strong> 
+                            en la Facultad de Ciencias Empresariales, Escuela Académico Profesional de Contabilidad.
+                        </p>
+                        <p>
+                            Actualmente me desempeño como <strong>Contador Público Colegiado Certificado</strong>, 
+                            con experiencia en gestión pública y privada; asimismo soy miembro del 
+                            <strong>Consejo Directivo del Colegio de Contadores Públicos de Huancavelica</strong>; 
+                            por tal razón me considero un <strong>verdadero y auténtico huancavelicano</strong>.
+                        </p>
+                    </div>
+
+                    <div class="signature">
+                        Fernando Clemente Arana
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        TARJETAS - TRAYECTORIA
+        ============================================================ -->
+        <div class="conoceme-content">
+            <div class="container">
+                <div class="text-center animate-on-scroll" style="margin-bottom: 50px;">
+                    <span class="section-tag">Mi trayectoria</span>
+                    <h2 class="section-title">Hitos de mi <span>vida</span></h2>
+                    <p class="section-subtitle mx-auto">Formación, experiencia y compromiso con Huancavelica</p>
+                </div>
+
+                <div class="conoceme-grid">
+                    <!-- Card 1: Educación -->
+                    <div class="conoceme-card animate-on-scroll">
+                        <span class="card-icon">🎓</span>
+                        <h3>Formación Profesional</h3>
+                        <p>
+                            Estudios en la <strong>I.E. N.° 36011</strong> y 
+                            <strong>Colegio Ramón Castilla Marquesado</strong>. 
+                            Título de <strong>Contador Público</strong> en la 
+                            <strong>Universidad Nacional de Huancavelica</strong> 
+                            y estudios en el <strong>Instituto Superior Tecnológico Público</strong>.
+                        </p>
+                    </div>
+
+                    <!-- Card 2: Experiencia -->
+                    <div class="conoceme-card animate-on-scroll delay-1">
+                        <span class="card-icon">💼</span>
+                        <h3>Experiencia Profesional</h3>
+                        <p>
+                            <strong>Contador Público Colegiado Certificado</strong> 
+                            con amplia trayectoria en <strong>gestión pública y privada</strong>. 
+                            Miembro del <strong>Consejo Directivo del Colegio de Contadores 
+                            Públicos de Huancavelica</strong>.
+                        </p>
+                    </div>
+
+                    <!-- Card 3: Compromiso -->
+                    <div class="conoceme-card animate-on-scroll delay-2">
+                        <span class="card-icon">❤️</span>
+                        <h3>Compromiso Social</h3>
+                        <p>
+                            <strong>Huancavelicano de corazón</strong>, comprometido con el 
+                            desarrollo de su tierra. Mi labor profesional y personal 
+                            está enfocada en <strong>servir a mi pueblo</strong> con 
+                            honestidad y eficiencia.
+                        </p>
+                    </div>
+
+                    <!-- Card 4: Visión -->
+                    <div class="conoceme-card animate-on-scroll delay-3">
+                        <span class="card-icon">🏛️</span>
+                        <h3>Visión Política</h3>
+                        <p>
+                            Candidato a la alcaldía provincial de Huancavelica por 
+                            <strong>Acción Popular</strong>. Mi objetivo es 
+                            <strong>transformar Huancavelica</strong> con obras, 
+                            transparencia y desarrollo integral para todos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        CITA DESTACADA
+        ============================================================ -->
+        <div class="container">
+            <div class="quote-block animate-on-scroll">
+                <blockquote>
+                    "Mi compromiso con Huancavelica va más allá de la política; 
+                    es un compromiso de vida con mi tierra y con mi gente. 
+                    Juntos podemos construir el futuro que merecemos."
+                    <cite>— Fernando Clemente Arana</cite>
+                </blockquote>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        LLAMADO A LA ACCIÓN
+        ============================================================ -->
+        <div class="cta-section">
+            <div class="container text-center animate-on-scroll">
+                <h2 class="section-title" style="font-size: 2.8rem;">
+                    ¿Quieres <span>sumarte</span> al cambio?
+                </h2>
+                <p class="section-subtitle mx-auto" style="margin-bottom: 32px;">
+                    Huancavelica necesita personas comprometidas como tú. 
+                    Únete a nuestra campaña y sé parte de la transformación.
+                </p>
+                <a href="../index.html#sumate" class="btn btn-primary">
+                    <i class="fas fa-handshake"></i> Súmate ahora
+                </a>
+                <a href="../index.html" class="btn btn-outline" style="margin-left: 12px;">
+                    <i class="fas fa-arrow-left"></i> Volver al inicio
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <fca-footer></fca-footer>
+
+    <!-- ============================================================
+    SCRIPTS
+    ============================================================ -->
+    <script src="../js/web-components.js"></script>
+    <script src="../js/main.js"></script>
+
+</body>
+</html>
