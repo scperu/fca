@@ -71,8 +71,6 @@ function mostrarHeaderRespaldo() {
                     <li><a href="index.html" id="nav-inicio">Inicio</a></li>
                     <li><a href="conoceme.html" id="nav-conoceme">Conóceme</a></li>
                     <li><a href="propuestas.html" id="nav-propuestas">Propuestas</a></li>
-                    <li><a href="huancavelica.html" id="nav-huancavelica">Huancavelica</a></li>
-                    <li><a href="noticias.html" id="nav-noticias">Noticias</a></li>
                     <li><a href="sumate.html" class="btn-sumate" id="nav-sumate"><i class="fas fa-handshake"></i> Súmate</a></li>
                 </ul>
             </nav>
@@ -102,8 +100,6 @@ function mostrarFooterRespaldo() {
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="conoceme.html">Conóceme</a></li>
                     <li><a href="propuestas.html">Propuestas</a></li>
-                    <li><a href="huancavelica.html">Huancavelica</a></li>
-                    <li><a href="noticias.html">Noticias</a></li>
                     <li><a href="sumate.html">Súmate</a></li>
                 </ul>
             </div>
@@ -143,8 +139,6 @@ function initHeader() {
         'index.html': 'nav-inicio',
         'conoceme.html': 'nav-conoceme',
         'propuestas.html': 'nav-propuestas',
-        'huancavelica.html': 'nav-huancavelica',
-        'noticias.html': 'nav-noticias',
         'sumate.html': 'nav-sumate'
     };
 
@@ -228,7 +222,7 @@ function initCounters() {
 }
 
 // ============================================================
-// FORMULARIO GLOBAL
+// FORMULARIO
 // ============================================================
 function initForm() {
     var form = document.getElementById('formSumate');
@@ -237,7 +231,7 @@ function initForm() {
     if (form && message) {
         var newForm = form.cloneNode(true);
         form.parentNode.replaceChild(newForm, form);
-
+        
         newForm.addEventListener('submit', function(e) {
             e.preventDefault();
             var msg = document.getElementById('formMessage');
@@ -277,13 +271,5 @@ document.addEventListener('DOMContentLoaded', function() {
         initScrollAnimations();
         initCounters();
         initSmoothScroll();
-        document.querySelectorAll('.filtros__btn').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                document.querySelectorAll('.filtros__btn').forEach(function(b) {
-                    b.classList.remove('active');
-                });
-                this.classList.add('active');
-            });
-        });
     }, 500);
 });
