@@ -54,14 +54,256 @@
             transform: translateY(-8px);
             box-shadow: 0 15px 40px rgba(0,0,0,0.1) !important;
         }
+        .conoceme-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+        .conoceme-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            max-width: 1100px;
+            margin: 0 auto 60px;
+            align-items: center;
+        }
+        .foto-wrapper {
+            position: relative;
+        }
+        .foto-wrapper .foto-container {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        .foto-wrapper .foto-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .badge-top {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            background: #1A1A2E;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border: 2px solid #fff;
+        }
+        .badge-top i {
+            margin-right: 6px;
+        }
+        .presentacion-texto h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #1A1A2E;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        .presentacion-texto h3 i {
+            color: #C8102E;
+            font-size: 1.4rem;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .presentacion-texto p {
+            color: #495057;
+            line-height: 1.9;
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+        }
+        .logros-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+        .logro-item {
+            background: #fff;
+            padding: 14px 18px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border: 1px solid #E9ECEF;
+        }
+        .logro-item i {
+            color: #C8102E;
+            font-size: 1.2rem;
+            margin-right: 8px;
+        }
+        .logro-item .logro-titulo {
+            font-weight: 600;
+            color: #1A1A2E;
+        }
+        .logro-item .logro-sub {
+            display: block;
+            font-size: 0.8rem;
+            color: #6C757D;
+        }
+        .frase-destacada {
+            background: linear-gradient(135deg, #C8102E, #A00D25);
+            color: #fff;
+            padding: 20px 25px;
+            border-radius: 14px;
+        }
+        .frase-destacada p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin: 0;
+            font-weight: 400;
+        }
+        .frase-destacada p i {
+            font-size: 1.2rem;
+            opacity: 0.5;
+            margin-right: 8px;
+        }
+        .frase-destacada p strong {
+            font-weight: 700;
+        }
+        .trayectoria-section {
+            max-width: 1100px;
+            margin: 60px auto 0;
+            padding-top: 40px;
+            border-top: 2px solid #E9ECEF;
+        }
+        .trayectoria-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .trayectoria-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            color: #1A1A2E;
+            margin-bottom: 12px;
+        }
+        .trayectoria-header h2 span {
+            color: #C8102E;
+        }
+        .trayectoria-header p {
+            color: #6C757D;
+            font-size: 1.05rem;
+        }
+        .trayectoria-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .trayectoria-col h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #C8102E;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .trayectoria-col h4 i {
+            font-size: 1.6rem;
+        }
+        .timeline-item p.timeline-titulo {
+            font-weight: 600;
+            color: #1A1A2E;
+            margin: 4px 0 2px;
+        }
+        .timeline-item p.timeline-desc {
+            color: #6C757D;
+            font-size: 0.95rem;
+        }
+        .valores-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            margin: 60px auto 0;
+        }
+        .valor-card {
+            background: #fff;
+            padding: 30px 25px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            text-align: center;
+            border-top: 4px solid #C8102E;
+            transition: all 0.3s ease;
+        }
+        .valor-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1) !important;
+        }
+        .valor-card .valor-icon {
+            font-size: 2.5rem;
+            color: #C8102E;
+            margin-bottom: 12px;
+        }
+        .valor-card h5 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #1A1A2E;
+        }
+        .valor-card p {
+            color: #6C757D;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin: 8px 0 0;
+        }
+        .cita-destacada {
+            max-width: 850px;
+            margin: 60px auto 0;
+            text-align: center;
+            background: #F8F9FA;
+            padding: 50px 40px;
+            border-radius: 20px;
+            border-left: 6px solid #C8102E;
+        }
+        .cita-destacada i {
+            font-size: 3rem;
+            color: #C8102E;
+            opacity: 0.25;
+            display: block;
+            margin-bottom: 16px;
+        }
+        .cita-destacada blockquote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: #1A1A2E;
+            line-height: 1.7;
+            font-style: italic;
+        }
+        .cita-destacada .cita-autor {
+            margin-top: 20px;
+            font-weight: 700;
+            color: #C8102E;
+            font-size: 1.1rem;
+        }
+        .cita-destacada .cita-cargo {
+            color: #6C757D;
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
         @media (max-width: 768px) {
-            .grid-conoceme {
+            .conoceme-grid {
                 grid-template-columns: 1fr !important;
                 gap: 30px !important;
             }
             .foto-wrapper {
                 max-width: 400px;
                 margin: 0 auto;
+            }
+            .logros-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .trayectoria-grid {
+                grid-template-columns: 1fr !important;
+                gap: 30px;
+            }
+            .valores-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px;
+            }
+            .cita-destacada blockquote {
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -78,7 +320,7 @@
             <!-- ============================================================
             ENCABEZADO
             ============================================================ -->
-            <div style="text-align: center; max-width: 800px; margin: 0 auto 50px;">
+            <div class="conoceme-header">
                 <span style="display: inline-block; background: #C8102E; color: #fff; padding: 6px 24px; border-radius: 30px; font-size: 0.8rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px;">Conóceme</span>
                 
                 <h1 class="section-title" style="margin-bottom: 20px; font-size: 2.8rem;">
@@ -99,54 +341,56 @@
             <!-- ============================================================
             GRID: FOTO + PRESENTACIÓN
             ============================================================ -->
-            <div class="grid-conoceme" style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; max-width: 1100px; margin: 0 auto 60px; align-items: center;">
+            <div class="conoceme-grid">
 
                 <!-- Foto -->
-                <div class="foto-wrapper" style="position: relative;">
-                    <div style="border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.15);">
+                <div class="foto-wrapper">
+                    <div class="foto-container">
                         <img 
                             src="assets/images/fca.jpeg" 
-                            alt="Fernando Clemente Arana" 
-                            style="width: 100%; height: auto; display: block;"
+                            alt="Fernando Clemente Arana - Contador Público y candidato a la alcaldía de Huancavelica" 
+                            width="600" 
+                            height="600" 
+                            loading="lazy"
                         />
                     </div>
-                    <div style="position: absolute; top: -10px; left: -10px; background: #1A1A2E; color: #fff; padding: 8px 16px; border-radius: 30px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.5px; border: 2px solid #fff;">
-                        <i class="fas fa-certificate" style="margin-right: 6px;"></i>
+                    <div class="badge-top">
+                        <i class="fas fa-certificate"></i>
                         Contador Público Colegiado
                     </div>
                 </div>
 
                 <!-- Presentación -->
-                <div>
-                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #1A1A2E; margin-bottom: 20px; line-height: 1.3;">
-                        <i class="fas fa-quote-left" style="color: #C8102E; font-size: 1.4rem; margin-right: 10px; vertical-align: middle;"></i>
+                <div class="presentacion-texto">
+                    <h3>
+                        <i class="fas fa-quote-left"></i>
                         Un huancavelicano <br>de verdad
                     </h3>
 
-                    <p style="color: #495057; line-height: 1.9; font-size: 1.05rem; margin-bottom: 20px;">
+                    <p>
                         <strong>Fernando Clemente Arana</strong> es un <strong>profesional huancavelicano</strong>, 
                         hijo de auténticos huancavelicanos, que ha dedicado su vida al servicio de su tierra y su gente.
                     </p>
 
                     <!-- Logros -->
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 25px;">
-                        <div style="background: #fff; padding: 14px 18px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border: 1px solid #E9ECEF;">
-                            <i class="fas fa-user-check" style="color: #C8102E; font-size: 1.2rem; margin-right: 8px;"></i>
-                            <span style="font-weight: 600; color: #1A1A2E;">Contador Público</span>
-                            <span style="display: block; font-size: 0.8rem; color: #6C757D;">Colegiado Certificado</span>
+                    <div class="logros-grid">
+                        <div class="logro-item">
+                            <i class="fas fa-user-check"></i>
+                            <span class="logro-titulo">Contador Público</span>
+                            <span class="logro-sub">Colegiado Certificado</span>
                         </div>
-                        <div style="background: #fff; padding: 14px 18px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border: 1px solid #E9ECEF;">
-                            <i class="fas fa-users" style="color: #C8102E; font-size: 1.2rem; margin-right: 8px;"></i>
-                            <span style="font-weight: 600; color: #1A1A2E;">Miembro del Consejo Directivo</span>
-                            <span style="display: block; font-size: 0.8rem; color: #6C757D;">Colegio de Contadores de Huancavelica</span>
+                        <div class="logro-item">
+                            <i class="fas fa-users"></i>
+                            <span class="logro-titulo">Miembro del Consejo Directivo</span>
+                            <span class="logro-sub">Colegio de Contadores de Huancavelica</span>
                         </div>
                     </div>
 
                     <!-- Frase destacada -->
-                    <div style="background: linear-gradient(135deg, #C8102E, #A00D25); color: #fff; padding: 20px 25px; border-radius: 14px;">
-                        <p style="font-size: 1.05rem; line-height: 1.7; margin: 0; font-weight: 400;">
-                            <i class="fas fa-quote-left" style="font-size: 1.2rem; opacity: 0.5; margin-right: 8px;"></i>
-                            <strong style="font-weight: 700;">"Por tal razón me considero un verdadero y auténtico huancavelicano"</strong>, 
+                    <div class="frase-destacada">
+                        <p>
+                            <i class="fas fa-quote-left"></i>
+                            <strong>"Por tal razón me considero un verdadero y auténtico huancavelicano"</strong>, 
                             comprometido con el desarrollo de nuestra provincia.
                         </p>
                     </div>
@@ -156,78 +400,78 @@
             <!-- ============================================================
             SECCIÓN: TRAYECTORIA (LÍNEA DE TIEMPO)
             ============================================================ -->
-            <div id="trayectoria" style="max-width: 1100px; margin: 60px auto 0; padding-top: 40px; border-top: 2px solid #E9ECEF;">
+            <div class="trayectoria-section">
                 
-                <div style="text-align: center; margin-bottom: 50px;">
-                    <h2 style="font-family: 'Playfair Display', serif; font-size: 2.4rem; color: #1A1A2E; margin-bottom: 12px;">
-                        Mi <span style="color: #C8102E;">Trayectoria</span>
+                <div class="trayectoria-header">
+                    <h2>
+                        Mi <span>Trayectoria</span>
                     </h2>
-                    <p style="color: #6C757D; font-size: 1.05rem;">Una vida dedicada a la formación y al servicio de Huancavelica</p>
+                    <p>Una vida dedicada a la formación y al servicio de Huancavelica</p>
                 </div>
 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                <div class="trayectoria-grid">
 
                     <!-- Columna izquierda: Formación -->
-                    <div>
-                        <h4 style="font-family: 'Playfair Display', serif; font-size: 1.4rem; color: #C8102E; margin-bottom: 25px; display: flex; align-items: center; gap: 12px;">
-                            <i class="fas fa-graduation-cap" style="font-size: 1.6rem;"></i>
+                    <div class="trayectoria-col">
+                        <h4>
+                            <i class="fas fa-graduation-cap"></i>
                             Formación Académica
                         </h4>
 
                         <div class="timeline-item">
                             <span class="year">Primaria</span>
-                            <p style="font-weight: 600; color: #1A1A2E; margin: 4px 0 2px;">I.E. N.° 36011</p>
-                            <p style="color: #6C757D; font-size: 0.95rem;">Barrio de San Cristóbal, Huancavelica</p>
+                            <p class="timeline-titulo">I.E. N.° 36011</p>
+                            <p class="timeline-desc">Barrio de San Cristóbal, Huancavelica</p>
                         </div>
 
                         <div class="timeline-item">
                             <span class="year">Secundaria</span>
-                            <p style="font-weight: 600; color: #1A1A2E; margin: 4px 0 2px;">Colegio Ramón Castilla Marquesado</p>
-                            <p style="color: #6C757D; font-size: 0.95rem;">Ex Comercio N.° 76, Huancavelica</p>
+                            <p class="timeline-titulo">Colegio Ramón Castilla Marquesado</p>
+                            <p class="timeline-desc">Ex Comercio N.° 76, Huancavelica</p>
                         </div>
 
                         <div class="timeline-item">
                             <span class="year">Superior</span>
-                            <p style="font-weight: 600; color: #1A1A2E; margin: 4px 0 2px;">Instituto Superior Tecnológico Público</p>
-                            <p style="color: #6C757D; font-size: 0.95rem;">Especialidad de Contabilidad, Huancavelica</p>
+                            <p class="timeline-titulo">Instituto Superior Tecnológico Público</p>
+                            <p class="timeline-desc">Especialidad de Contabilidad, Huancavelica</p>
                         </div>
 
                         <div class="timeline-item">
                             <span class="year">Universidad</span>
-                            <p style="font-weight: 600; color: #1A1A2E; margin: 4px 0 2px;">Primera Casa Superior de Estudios de Huancavelica</p>
-                            <p style="color: #6C757D; font-size: 0.95rem;">Facultad de Ciencias Empresariales - Contabilidad</p>
+                            <p class="timeline-titulo">Primera Casa Superior de Estudios de Huancavelica</p>
+                            <p class="timeline-desc">Facultad de Ciencias Empresariales - Contabilidad</p>
                         </div>
                     </div>
 
                     <!-- Columna derecha: Experiencia -->
-                    <div>
-                        <h4 style="font-family: 'Playfair Display', serif; font-size: 1.4rem; color: #C8102E; margin-bottom: 25px; display: flex; align-items: center; gap: 12px;">
-                            <i class="fas fa-briefcase" style="font-size: 1.6rem;"></i>
+                    <div class="trayectoria-col">
+                        <h4>
+                            <i class="fas fa-briefcase"></i>
                             Experiencia Profesional
                         </h4>
 
                         <div class="timeline-item">
                             <span class="year">Actual</span>
-                            <p style="font-weight: 600; color: #1A1A2E; margin: 4px 0 2px;">Contador Público Colegiado Certificado</p>
-                            <p style="color: #6C757D; font-size: 0.95rem;">Experiencia en gestión pública y privada</p>
+                            <p class="timeline-titulo">Contador Público Colegiado Certificado</p>
+                            <p class="timeline-desc">Experiencia en gestión pública y privada</p>
                         </div>
 
                         <div class="timeline-item">
                             <span class="year">Consejo Directivo</span>
-                            <p style="font-weight: 600; color: #1A1A2E; margin: 4px 0 2px;">Miembro del Consejo Directivo</p>
-                            <p style="color: #6C757D; font-size: 0.95rem;">Colegio de Contadores Públicos de Huancavelica</p>
+                            <p class="timeline-titulo">Miembro del Consejo Directivo</p>
+                            <p class="timeline-desc">Colegio de Contadores Públicos de Huancavelica</p>
                         </div>
 
                         <div class="timeline-item">
                             <span class="year">Gestión Pública</span>
-                            <p style="font-weight: 600; color: #1A1A2E; margin: 4px 0 2px;">Experiencia en Gestión Pública</p>
-                            <p style="color: #6C757D; font-size: 0.95rem;">Municipalidad Provincial de Huancavelica</p>
+                            <p class="timeline-titulo">Experiencia en Gestión Pública</p>
+                            <p class="timeline-desc">Municipalidad Provincial de Huancavelica</p>
                         </div>
 
                         <div class="timeline-item">
                             <span class="year">Gestión Privada</span>
-                            <p style="font-weight: 600; color: #1A1A2E; margin: 4px 0 2px;">Experiencia en el sector privado</p>
-                            <p style="color: #6C757D; font-size: 0.95rem;">Asesoría y consultoría empresarial</p>
+                            <p class="timeline-titulo">Experiencia en el sector privado</p>
+                            <p class="timeline-desc">Asesoría y consultoría empresarial</p>
                         </div>
                     </div>
 
@@ -237,55 +481,53 @@
             <!-- ============================================================
             VALORES Y COMPROMISO
             ============================================================ -->
-            <div style="max-width: 1100px; margin: 60px auto 0;">
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px;">
+            <div class="valores-grid">
 
-                    <div class="card-trayectoria" style="background: #fff; padding: 30px 25px; border-radius: 16px; box-shadow: 0 5px 20px rgba(0,0,0,0.06); text-align: center; border-top: 4px solid #C8102E;">
-                        <div style="font-size: 2.5rem; color: #C8102E; margin-bottom: 12px;">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                        <h5 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #1A1A2E;">Compromiso Social</h5>
-                        <p style="color: #6C757D; font-size: 0.9rem; line-height: 1.7; margin: 8px 0 0;">
-                            Trabajo incansable por el bienestar de las comunidades más necesitadas de Huancavelica.
-                        </p>
+                <div class="valor-card">
+                    <div class="valor-icon">
+                        <i class="fas fa-heart"></i>
                     </div>
-
-                    <div class="card-trayectoria" style="background: #fff; padding: 30px 25px; border-radius: 16px; box-shadow: 0 5px 20px rgba(0,0,0,0.06); text-align: center; border-top: 4px solid #C8102E;">
-                        <div style="font-size: 2.5rem; color: #C8102E; margin-bottom: 12px;">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <h5 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #1A1A2E;">Liderazgo Ético</h5>
-                        <p style="color: #6C757D; font-size: 0.9rem; line-height: 1.7; margin: 8px 0 0;">
-                            Transparencia, honestidad y vocación de servicio en cada acción de gestión pública.
-                        </p>
-                    </div>
-
-                    <div class="card-trayectoria" style="background: #fff; padding: 30px 25px; border-radius: 16px; box-shadow: 0 5px 20px rgba(0,0,0,0.06); text-align: center; border-top: 4px solid #C8102E;">
-                        <div style="font-size: 2.5rem; color: #C8102E; margin-bottom: 12px;">
-                            <i class="fas fa-flag"></i>
-                        </div>
-                        <h5 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #1A1A2E;">Identidad Huancavelicana</h5>
-                        <p style="color: #6C757D; font-size: 0.9rem; line-height: 1.7; margin: 8px 0 0;">
-                            Orgulloso de sus raíces, comprometido con el desarrollo y progreso de su tierra.
-                        </p>
-                    </div>
-
+                    <h5>Compromiso Social</h5>
+                    <p>
+                        Trabajo incansable por el bienestar de las comunidades más necesitadas de Huancavelica.
+                    </p>
                 </div>
+
+                <div class="valor-card">
+                    <div class="valor-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h5>Liderazgo Ético</h5>
+                    <p>
+                        Transparencia, honestidad y vocación de servicio en cada acción de gestión pública.
+                    </p>
+                </div>
+
+                <div class="valor-card">
+                    <div class="valor-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <h5>Identidad Huancavelicana</h5>
+                    <p>
+                        Orgulloso de sus raíces, comprometido con el desarrollo y progreso de su tierra.
+                    </p>
+                </div>
+
             </div>
 
             <!-- ============================================================
             CITA DESTACADA
             ============================================================ -->
-            <div style="max-width: 850px; margin: 60px auto 0; text-align: center; background: #F8F9FA; padding: 50px 40px; border-radius: 20px; border-left: 6px solid #C8102E;">
-                <i class="fas fa-quote-right" style="font-size: 3rem; color: #C8102E; opacity: 0.25; display: block; margin-bottom: 16px;"></i>
-                <blockquote style="font-family: 'Playfair Display', serif; font-size: 1.6rem; color: #1A1A2E; line-height: 1.7; font-style: italic;">
+            <div class="cita-destacada">
+                <i class="fas fa-quote-right"></i>
+                <blockquote>
                     "Soy hijo de esta tierra, me formé en sus aulas y he servido a su gente. 
                     Huancavelica merece un futuro de oportunidades y yo estoy listo para liderar ese cambio."
                 </blockquote>
-                <p style="margin-top: 20px; font-weight: 700; color: #C8102E; font-size: 1.1rem;">
+                <p class="cita-autor">
                     — Fernando Clemente Arana
                 </p>
-                <p style="color: #6C757D; font-size: 0.9rem; margin-top: 4px;">
+                <p class="cita-cargo">
                     Candidato a la Alcaldía Provincial de Huancavelica · Acción Popular
                 </p>
             </div>
